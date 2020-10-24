@@ -1,0 +1,74 @@
+.showing {
+   background-color: white;
+}
+.showing__Heading {
+   display: flex;
+}
+.verical__line {
+   width: 3px;
+   height: 100px;
+   margin-right: 10px;
+   background-color: red;
+}
+.heading__title {
+   display: flex;
+   align-items: center;
+   color: black;
+}
+.slick-next {
+   z-index: 10;
+   height: 100%;
+   width: 10%;
+   right: -7%;
+}
+.slick-prev {
+   z-index: 10;
+   height: 100%;
+   width: 10%;
+   left: -7%;
+}
+.navCenter {
+   justify-content: center;
+   border: 0px;
+}
+.slick-next::before {
+   font-size: 50px;
+   color: rgba(255, 0, 0, 0.705);
+}
+.slick-prev::before {
+   font-size: 50px;
+   color: rgba(255, 0, 0, 0.8);
+}
+.slick-dots li button:before {
+   font-size: 0.5rem;
+   color: white;
+}
+.slick-dots li button::before {
+   color: salmon;
+}
+.slick-dots li.slick-active button:before {
+   color: red;
+}
+.card .showimg {
+   width: 100%;
+   height: 300px;
+}
+.card .card-body {
+   bottom: 0;
+   padding: 0;
+}
+.nav-tabs .nav__unactive {
+   color: black;
+   font-weight: bold;
+   transition: all 0.3s;
+   border: 0;
+}
+.nav-tabs .nav-link.active {
+   color: red;
+   font-weight: bold;
+   font-size: 1.3rem;
+   cursor: context-menu;
+}
+.nav-tabs .nav__unactive:hover {
+   font-size: 1.3rem;
+}
