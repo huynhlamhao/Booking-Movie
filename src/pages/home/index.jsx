@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, PureComponent } from "react";
 import Header from "../../components/Header";
 import Banner from "../../components/Banner";
 import Footer from "../../components/Footer";
@@ -9,7 +9,7 @@ import { connect } from "react-redux";
 import { fetchCinemas } from "../../redux/actions/cinemaList";
 // import { fetchCinemasList } from "../../redux/actions/cinema";
 
-class index extends Component {
+class index extends PureComponent {
    render() {
       return (
          <div>
@@ -29,7 +29,6 @@ class index extends Component {
    componentDidMount() {
       this.props.dispatch(fetchMoives);
       this.props.dispatch(fetchCinemas);
-      // this.props.dispatch(fetchCinemasList);
    }
 }
 

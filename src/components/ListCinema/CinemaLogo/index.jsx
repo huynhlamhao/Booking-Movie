@@ -1,9 +1,11 @@
-import React, { Component } from "react";
+import React, { Component, PureComponent } from "react";
 import { connect } from "react-redux";
 import { fetchCinemasList } from "../../../redux/actions/cinema";
 
-class index extends Component {
+import "./style.css";
+class index extends PureComponent {
    handleHeThongRap = (e) => {
+      // console.log("logoprops", this.props.logo);
       this.props.dispatch(fetchCinemasList(e.target.id));
    };
 
@@ -28,6 +30,9 @@ class index extends Component {
             />
          </a>
       );
+   }
+   componentDidMount() {
+      this.props.dispatch(fetchCinemasList("BHDStar"));
    }
 }
 

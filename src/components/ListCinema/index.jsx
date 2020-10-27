@@ -1,10 +1,10 @@
-import React, { Component } from "react";
+import React, { Component, PureComponent } from "react";
 import { connect } from "react-redux";
 import CinemaLogo from "./CinemaLogo";
-import CinemaList from "./CinemaList";
+import CinemaSystem from "./CinemaSystem";
 import ShowTime from "./ShowTime";
 import "./style.css";
-class index extends Component {
+class index extends PureComponent {
    renderLogoCinema = () => {
       // console.log("logoCInema", this.props.cinemaLogoList);
       return this.props.cinemaLogoList.map((item, index) => {
@@ -14,14 +14,17 @@ class index extends Component {
    renderCinemaList() {
       // console.log(this.props.cinemaList);
       return this.props.cinemaList.map((item, index) => {
-         return <CinemaList item={item} index={index} key={index}></CinemaList>;
+         return (
+            <CinemaSystem item={item} index={index} key={index}></CinemaSystem>
+         );
       });
    }
-   renderShowTime() {
-      return this.props.cinemaList.map((item, index) => {
+   renderShowTime = () => {
+      console.log("showtime", this.props.cinemaShowTimes);
+      return this.props.cinemaShowTimes.map((item, index) => {
          return <ShowTime item={item} index={index} key={index}></ShowTime>;
       });
-   }
+   };
    render() {
       return (
          <div className="container my-5">
@@ -42,10 +45,7 @@ class index extends Component {
                      {this.renderCinemaList()}
                   </div>
                </div>
-               <div className="col-7 border p-2">
-                  {this.renderShowTime()}
-                  {/* {this.renderCinemaShowTimes()} */}
-               </div>
+               <div className="col-7 p-0">{this.renderShowTime()}</div>
             </div>
          </div>
       );
@@ -55,7 +55,7 @@ const mapStateToProps = (state) => {
    return {
       cinemaLogoList: state.cinema.listCinemas,
       cinemaList: state.cinema.cinema,
-      // cinemaShowTimes: state.cinema.showTime,
+      cinemaShowTimes: state.cinema.showTime,
    };
 };
 export default connect(mapStateToProps)(index);

@@ -1,0 +1,9 @@
+.cinema__logo {
+   opacity: 0.5;
+}
+.cinema__logo:hover {
+   opacity: 1;
+}
+.nav-pills .active {
+   opacity: 1;
+}
