@@ -1,9 +1,26 @@
-import React, { Component, PureComponent } from "react";
+import React, { PureComponent } from "react";
 import { connect } from "react-redux";
 import { fetchCinemasShowTime } from "../../../redux/actions/cinemaShowTime";
 import "./style.css";
 class index extends PureComponent {
+   // renderCinemaSystemLogo=()=>{
+
+   // }
+   handleimg = () => {
+      const logo = this.props.cinemaSystemLogo.filter((logo) => {
+         return logo.maHeThong === this.props.item.maHeThongRap;
+      });
+
+      return logo.map((item, index) => {
+         // console.log(item.img);
+         return (
+            <img alt="" src={item.img} key={index} width="50px" height="50px" />
+         );
+      });
+   };
    renderCinemaSystem() {
+      // console.log("item", this.props.item);
+      // console.log(this.props.cinemaSystemLogo.maHeThong);
       return this.props.item.lstCumRap.map((item, index) => {
          return (
             <div
@@ -13,23 +30,17 @@ class index extends PureComponent {
                aria-labelledby="v-pills-home-tab"
                key={index}
             >
+               <img src="" alt="" />
                <button
                   className="btn btn-light w-100"
                   onClick={(e) => {
-                     console.log(item.maCumRap);
+                     console.log("macumrap", item.maCumRap);
 
                      this.props.dispatch(fetchCinemasShowTime(item.maCumRap));
                   }}
                >
                   <div className="row">
-                     <div className="col-3">
-                        <img
-                           src={item.hinhAnh}
-                           width="20px"
-                           height="20px"
-                           alt=""
-                        />
-                     </div>
+                     <div className="col-3">{this.handleimg()}</div>
                      <div className="col-9 text-left">
                         <span className="cinemaNameColor">
                            {item.tenCumRap.slice(
@@ -57,4 +68,9 @@ class index extends PureComponent {
       );
    }
 }
-export default connect()(index);
+const mapStateToProps = (state) => {
+   return {
+      cinemaSystemLogo: state.cinema.cinemaSystemLogo,
+   };
+};
+export default connect(mapStateToProps)(index);

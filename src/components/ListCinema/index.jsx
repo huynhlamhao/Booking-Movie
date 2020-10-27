@@ -1,4 +1,4 @@
-import React, { Component, PureComponent } from "react";
+import React, { PureComponent } from "react";
 import { connect } from "react-redux";
 import CinemaLogo from "./CinemaLogo";
 import CinemaSystem from "./CinemaSystem";
@@ -12,7 +12,7 @@ class index extends PureComponent {
       });
    };
    renderCinemaList() {
-      // console.log(this.props.cinemaList);
+      console.log(this.props.cinemaList);
       return this.props.cinemaList.map((item, index) => {
          return (
             <CinemaSystem item={item} index={index} key={index}></CinemaSystem>
@@ -20,7 +20,7 @@ class index extends PureComponent {
       });
    }
    renderShowTime = () => {
-      console.log("showtime", this.props.cinemaShowTimes);
+      // console.log("showtime", this.props.cinemaShowTimes);
       return this.props.cinemaShowTimes.map((item, index) => {
          return <ShowTime item={item} index={index} key={index}></ShowTime>;
       });
