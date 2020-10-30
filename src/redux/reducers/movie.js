@@ -1,4 +1,4 @@
-import { SET_MOVIE } from "../types/type";
+import { SET_MOVIE, SET_MOVIE_DETAIL } from "../types/type";
 
 let initialState = {
    movieList: [],
@@ -36,13 +36,18 @@ let initialState = {
          TraiLer: "https://youtu.be/SwwlFvOwkhA",
       },
    ],
+   detailItem: null | {},
 };
 const reducer = (state = initialState, { type, payLoad }) => {
    switch (type) {
       case SET_MOVIE:
          state.movieList = payLoad;
-         // console.log(1);
-
+         return { ...state };
+      case SET_MOVIE_DETAIL:
+         let item = null | {};
+         item = payLoad;
+         state.detailItem = item;
+         console.log("stateafter", state.detailItem);
          return { ...state };
       default:
          return state;

@@ -1,9 +1,10 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import "./style.css";
 export default class index extends Component {
    render() {
-      // console.log(this.props.movie);
-      const { tenPhim, hinhAnh, trailer, danhGia } = this.props.movie;
+      // console.log("movie", this.props.movie);
+      const { maPhim, tenPhim, hinhAnh, trailer, danhGia } = this.props.movie;
       return (
          <div className="card mt-5 mx-2">
             <img className="card-img showimg" src={hinhAnh} alt="" />
@@ -62,7 +63,12 @@ export default class index extends Component {
                      alt=""
                   />
                </a>
-               <button className="btn btn-danger btnOverlay">Đặt vé</button>
+               <Link
+                  to={`/detail/${maPhim}`}
+                  className="btn btn-danger btnOverlay"
+               >
+                  Đặt vé
+               </Link>
             </div>
          </div>
       );

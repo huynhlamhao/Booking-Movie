@@ -1,11 +1,15 @@
 import React, { PureComponent } from "react";
 import "./style.css";
 export default class index extends PureComponent {
+   constructor(props) {
+      super(props);
+      this.state = { today: "2019-01-01" };
+   }
    render() {
       // console.log(this.props.item);
       const { tenPhim, hinhAnh, lstLichChieuTheoPhim } = this.props.item;
       const movieTimeList = lstLichChieuTheoPhim.filter((item) => {
-         return item.ngayChieuGioChieu !== "2019-01-01T10:10:00";
+         return item.ngayChieuGioChieu.substr(0, 10) === this.state.today;
       });
       // console.log("movieTimeList", movieTimeList.length);
       return movieTimeList.length !== 0 ? (
@@ -23,8 +27,8 @@ export default class index extends PureComponent {
                {movieTimeList.map((item, index) => {
                   return (
                      <button key={index} className="btn movieTimeBtn">
-                        <span>10:10</span>~<span>10:10</span>
-                        {/* {item.ngayChieuGioChieu} */}
+                        {/* <span>10:10</span>~<span>10:10</span> */}
+                        {item.ngayChieuGioChieu.substr(11, 5)}
                      </button>
                   );
                })}

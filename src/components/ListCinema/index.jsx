@@ -12,7 +12,7 @@ class index extends PureComponent {
       });
    };
    renderCinemaList() {
-      console.log(this.props.cinemaList);
+      // console.log(this.props.cinemaList);
       return this.props.cinemaList.map((item, index) => {
          return (
             <CinemaSystem item={item} index={index} key={index}></CinemaSystem>

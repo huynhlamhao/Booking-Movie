@@ -55,9 +55,7 @@ const reducer = (state = initialState, { type, payLoad }) => {
          const index = state.cinema[0].lstCumRap.findIndex((item) => {
             return item.maCumRap === payLoad;
          });
-         // if (state.showTime.length > 0) {
-         //    state.showTime.splice(0, 1);
-         // }
+
          let show = [];
          if (index !== -1) {
             let movieList = state.cinema[0].lstCumRap[index].danhSachPhim;

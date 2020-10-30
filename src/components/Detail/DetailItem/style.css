@@ -1,0 +1,22 @@
+.detail {
+   background-color: #0a2029;
+   position: relative;
+   height: 2000px;
+}
+.movieDetailInfo {
+   position: absolute;
+   left: 15%;
+   right: 15%;
+   top: 10%;
+   bottom: 10%;
+}
+.blurImg {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   display: block;
+   max-height: calc(100vh);
+   filter: blur(7px);
+   -webkit-filter: blur(7px);
+}

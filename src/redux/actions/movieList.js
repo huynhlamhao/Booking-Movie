@@ -5,7 +5,7 @@ import connector from "../../configs/connector";
 export const fetchMoives = (dispatch) => {
    connector({
       url:
-         "https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP02",
+         "https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP01",
       method: "GET",
    })
       .then((res) => {

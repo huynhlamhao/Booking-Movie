@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import classes from "./style.module.css";
 import "./style.css";
+import { NavLink } from "react-router-dom";
 class index extends Component {
    render() {
       return (
@@ -29,24 +30,24 @@ class index extends Component {
                      className={`navbar-nav mr-auto ml-auto mt-2 mt-lg-0  ${classes.navBar} `}
                   >
                      <li className="nav-item active">
-                        <a className="nav-link" href="#header">
+                        <NavLink className="nav-link" to="/" href="#header">
                            Trang Chủ
-                        </a>
+                        </NavLink>
                      </li>
                      <li className="nav-item">
-                        <a className="nav-link" href="#showing">
+                        <NavLink className="nav-link" to="/" href="#showing">
                            Lịch Chiếu
-                        </a>
+                        </NavLink>
                      </li>
                      <li className="nav-item">
-                        <a className="nav-link" href="#cinema">
+                        <NavLink className="nav-link" to="/" href="#cinema">
                            Cụm rạp
-                        </a>
+                        </NavLink>
                      </li>
                      <li className="nav-item">
-                        <a className="nav-link" href="#news">
+                        <NavLink className="nav-link" to="/" href="#news">
                            Tin tức
-                        </a>
+                        </NavLink>
                      </li>
                   </ul>
                   <a href="/" className="m-4 text-danger">
