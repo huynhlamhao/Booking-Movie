@@ -27,7 +27,7 @@ class index extends PureComponent {
    };
    render() {
       return (
-         <div className="container my-5">
+         <div id="cinema" className="container my-5">
             <h1 className="text-center">Hệ thống rạp và lịch chiếu</h1>
             <div className="row">
                <div className="col-1 border p-2">
@@ -40,12 +40,12 @@ class index extends PureComponent {
                      {this.renderLogoCinema()}
                   </div>
                </div>
-               <div className="col-4 border p-2">
+               <div className="col-4 border p-2 crollBar">
                   <div className="tab-content" id="v-pills-tabContent">
                      {this.renderCinemaList()}
                   </div>
                </div>
-               <div className="col-7 p-0">{this.renderShowTime()}</div>
+               <div className="col-7 p-0 crollBar">{this.renderShowTime()}</div>
             </div>
          </div>
       );

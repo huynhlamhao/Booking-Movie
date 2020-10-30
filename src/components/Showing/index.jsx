@@ -22,6 +22,7 @@ class index extends Component {
          slidesToShow: 5,
          slidesToScroll: 3,
          autoplay: true,
+         arrows: true,
          responsive: [
             {
                breakpoint: 1199,

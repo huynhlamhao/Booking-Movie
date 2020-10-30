@@ -9,16 +9,6 @@ class index extends Component {
       const { HinhAnh, TraiLer } = this.props.item;
 
       return (
-         //    <Carousel.Item
-         //       className={`${this.props.index === index ? "active" : ""}`}
-         //    >
-         //       <img className="d-block w-100" src={HinhAnh} alt={TenPhim} />
-         //       <Carousel.Caption>
-         //          <h3>{TenPhim}</h3>
-         //          <p>{MoTa}</p>
-         //       </Carousel.Caption>
-         //    </Carousel.Item>
-         // );
          <div
             className={`carousel-item ${
                this.props.index === 0 ? "active" : ""

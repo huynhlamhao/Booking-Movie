@@ -12,13 +12,6 @@ class index extends Component {
    };
    render() {
       return (
-         //    <Carousel
-         //       activeIndex={this.state.activeIndex}
-         //       onSelect={this.handleSelect}
-         //    >
-         //       {this.renderBanner()}
-         //    </Carousel>
-         // );
          <div id="carouselId" className="carousel slide" data-ride="carousel">
             <ol className="carousel-indicators">
                <li

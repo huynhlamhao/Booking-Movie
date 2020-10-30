@@ -4,6 +4,8 @@ import Banner from "../../components/Banner";
 import Footer from "../../components/Footer";
 import Showing from "../../components/Showing";
 import ListCinema from "../../components/ListCinema";
+import News from "../../components/News";
+import AppDownload from "../../components/AppDownload";
 import { fetchMoives } from "../../redux/actions/movieList";
 import { connect } from "react-redux";
 import { fetchCinemas } from "../../redux/actions/cinemaList";
@@ -21,6 +23,8 @@ class index extends Component {
 
             <ListCinema></ListCinema>
 
+            <News></News>
+            <AppDownload></AppDownload>
             <Footer></Footer>
          </div>
       );

@@ -18,26 +18,48 @@
 .slick-next {
    z-index: 10;
    height: 100%;
-   width: 10%;
-   right: -7%;
+   width: 3%;
+
+   right: 0%;
+   top: 53%;
+
+   background-image: url("https://tix.vn/app/assets/img/icons/next-session.png");
+   background-repeat: no-repeat;
+   background-position: center;
+   background-size: contain;
+}
+.slick-next:hover {
+   background-image: url("https://tix.vn/app/assets/img/icons/next-session.png");
+   background-repeat: no-repeat;
+   background-position: center;
+   background-size: contain;
 }
 .slick-prev {
    z-index: 10;
    height: 100%;
-   width: 10%;
-   left: -7%;
+   width: 3%;
+   left: 0%;
+   top: 53%;
+   background-image: url("https://tix.vn/app/assets/img/icons/back-session.png");
+   background-repeat: no-repeat;
+   background-position: center;
+   background-size: contain;
+}
+.slick-prev:hover {
+   background-image: url("https://tix.vn/app/assets/img/icons/back-session.png");
+   background-repeat: no-repeat;
+   background-position: center;
+   background-size: contain;
 }
 .navCenter {
    justify-content: center;
    border: 0px;
 }
 .slick-next::before {
-   font-size: 50px;
-   color: rgba(255, 0, 0, 0.705);
+   font-size: 0;
 }
 .slick-prev::before {
-   font-size: 50px;
-   color: rgba(255, 0, 0, 0.8);
+   font-size: 0;
 }
 .slick-dots li button:before {
    font-size: 0.5rem;

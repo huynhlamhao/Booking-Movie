@@ -4,7 +4,7 @@ import "./style.css";
 class index extends Component {
    render() {
       return (
-         <div className={classes.head}>
+         <div id="header" className={classes.head}>
             <nav className="navbar navbar-expand-sm navbar-light">
                <a className="navbar-brand" href="./">
                   <img
@@ -29,7 +29,7 @@ class index extends Component {
                      className={`navbar-nav mr-auto ml-auto mt-2 mt-lg-0  ${classes.navBar} `}
                   >
                      <li className="nav-item active">
-                        <a className="nav-link" href="./">
+                        <a className="nav-link" href="#header">
                            Trang Chủ
                         </a>
                      </li>
@@ -39,27 +39,19 @@ class index extends Component {
                         </a>
                      </li>
                      <li className="nav-item">
-                        <a className="nav-link" href="./">
+                        <a className="nav-link" href="#cinema">
                            Cụm rạp
                         </a>
                      </li>
                      <li className="nav-item">
-                        <a className="nav-link" href="./">
+                        <a className="nav-link" href="#news">
                            Tin tức
                         </a>
                      </li>
                   </ul>
-                  <form className="form-inline my-2 my-lg-0">
-                     <input
-                        className="form-control mr-sm-2 "
-                        type="text"
-                        placeholder="Search"
-                     />
-
-                     <a href="/" className="ml-4 text-danger">
-                        <i className="fas fa-user"></i>
-                     </a>
-                  </form>
+                  <a href="/" className="m-4 text-danger">
+                     <i className="fas fa-user"></i>
+                  </a>
                </div>
             </nav>
          </div>

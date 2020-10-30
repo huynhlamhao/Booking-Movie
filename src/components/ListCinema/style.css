@@ -2,3 +2,22 @@
    height: 60px;
    margin-bottom: 50px;
 }
+.crollBar {
+   overflow: overlay;
+   height: 800px;
+}
+.crollBar::-webkit-scrollbar {
+   width: 6px;
+   /* background-color: red; */
+}
+.crollBar::-webkit-scrollbar-track {
+   box-shadow: inset 0 0 5px grey;
+   border-radius: 30%;
+}
+.crollBar::-webkit-scrollbar-thumb {
+   background-color: red;
+   border-radius: 30%;
+}
+.crollBar::-webkit-scrollbar-thumb:hover {
+   background: #b30000;
+}
