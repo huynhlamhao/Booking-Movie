@@ -27,7 +27,7 @@ class index extends PureComponent {
    };
    render() {
       return (
-         <div id="cinema" className="container my-5">
+         <div id="cinema" className="container my-5 bg-light">
             <h1 className="text-center">Hệ thống rạp và lịch chiếu</h1>
             <div className="row">
                <div className="col-1 border p-2">

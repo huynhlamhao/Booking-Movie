@@ -3,6 +3,7 @@ import { BrowserRouter, Route } from "react-router-dom"; //ho tro chia page cho 
 
 import Home from "../src/pages/home";
 import DetailMovie from "../src/pages/detailMovie";
+import CheckOut from "./pages/checkout";
 function App() {
    return (
       <BrowserRouter>
@@ -10,6 +11,7 @@ function App() {
             <Route exact path="/home" component={Home} />
 
             <Route exact path="/detail/:movieId" component={DetailMovie} />
+            <Route exact path="/checkout/:checkoutId" component={CheckOut} />
             <Route exact path="/" component={Home} />
          </div>
       </BrowserRouter>

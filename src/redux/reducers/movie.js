@@ -1,4 +1,8 @@
-import { SET_MOVIE, SET_MOVIE_DETAIL } from "../types/type";
+import {
+   SET_MOVIE,
+   SET_MOVIE_DETAIL,
+   SET_MOVIE_DETAIL_CAL,
+} from "../types/type";
 
 let initialState = {
    movieList: [],
@@ -36,18 +40,31 @@ let initialState = {
          TraiLer: "https://youtu.be/SwwlFvOwkhA",
       },
    ],
-   detailItem: null | {},
+   detailItem: {},
+   detailCal: [],
 };
 const reducer = (state = initialState, { type, payLoad }) => {
    switch (type) {
       case SET_MOVIE:
          state.movieList = payLoad;
+         state.detailItem = {};
          return { ...state };
       case SET_MOVIE_DETAIL:
-         let item = null | {};
-         item = payLoad;
-         state.detailItem = item;
-         console.log("stateafter", state.detailItem);
+         state.detailItem = payLoad;
+         return { ...state };
+      case SET_MOVIE_DETAIL_CAL:
+         console.log("payload", payLoad);
+         let calFilter = [];
+         if (state.detailItem.lichChieu) {
+            calFilter = state.detailItem.lichChieu.filter((item) => {
+               return (
+                  item.thongTinRap.maHeThongRap === payLoad &&
+                  item.ngayChieuGioChieu.substr(0, 10) === "2019-01-01"
+               );
+            });
+         }
+         state.detailCal = calFilter;
+         console.log("detailCal", state.detailCal);
          return { ...state };
       default:
          return state;

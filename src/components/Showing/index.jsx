@@ -51,6 +51,7 @@ class index extends Component {
                   rows: 1,
                   slidesToShow: 1,
                   slidesToScroll: 1,
+                  dots: false,
                },
             },
             // You can unslick at a given breakpoint now by adding:

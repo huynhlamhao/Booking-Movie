@@ -1,19 +1,19 @@
 import React, { Component } from "react";
 import classes from "./style.module.css";
 import "./style.css";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 class index extends Component {
    render() {
       return (
          <div id="header" className={classes.head}>
             <nav className="navbar navbar-expand-sm navbar-light">
-               <a className="navbar-brand" href="./">
+               <NavLink to="/" className="navbar-brand" href="./">
                   <img
                      src="https://i.imgur.com/lC22izJ.png"
                      width="50px"
                      alt=""
                   />
-               </a>
+               </NavLink>
                <button
                   className="navbar-toggler d-lg-none"
                   type="button"

@@ -33,7 +33,7 @@ class index extends PureComponent {
                <img src="" alt="" />
                <button
                   className="btn btn-light w-100"
-                  onClick={(e) => {
+                  onClick={() => {
                      console.log("macumrap", item.maCumRap);
 
                      this.props.dispatch(fetchCinemasShowTime(item.maCumRap));

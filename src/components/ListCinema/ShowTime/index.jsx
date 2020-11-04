@@ -1,10 +1,14 @@
 import React, { PureComponent } from "react";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+import { fetchCheckOut } from "../../../redux/actions/checkout";
 import "./style.css";
-export default class index extends PureComponent {
+class index extends PureComponent {
    constructor(props) {
       super(props);
       this.state = { today: "2019-01-01" };
    }
+
    render() {
       // console.log(this.props.item);
       const { tenPhim, hinhAnh, lstLichChieuTheoPhim } = this.props.item;
@@ -25,11 +29,18 @@ export default class index extends PureComponent {
 
             <div className="movieTime text-left">
                {movieTimeList.map((item, index) => {
+                  console.log("item:", item);
                   return (
-                     <button key={index} className="btn movieTimeBtn">
-                        {/* <span>10:10</span>~<span>10:10</span> */}
+                     <Link
+                        to={`/checkout/${item.maLichChieu}`}
+                        key={index}
+                        className="btn movieTimeBtn"
+                        onClick={() => {
+                           this.props.dispatch(fetchCheckOut(item.maLichChieu));
+                        }}
+                     >
                         {item.ngayChieuGioChieu.substr(11, 5)}
-                     </button>
+                     </Link>
                   );
                })}
             </div>
@@ -39,3 +50,4 @@ export default class index extends PureComponent {
       );
    }
 }
+export default connect()(index);
