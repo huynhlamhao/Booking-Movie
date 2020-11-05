@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-
+import LazyLoad from "../LazyLoad";
 class index extends Component {
    renderChairList = () => {
       return this.props.checkoutInfo.danhSachGhe.map((item, index) => {
@@ -35,7 +35,7 @@ class index extends Component {
             <div className="col-sm-4"></div>
          </div>
       ) : (
-         ""
+         <LazyLoad></LazyLoad>
       );
    }
 }

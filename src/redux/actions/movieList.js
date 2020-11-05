@@ -9,6 +9,7 @@ export const fetchMoives = (dispatch) => {
       method: "GET",
    })
       .then((res) => {
+         // console.log(res.data);
          dispatch(creactAction(SET_MOVIE, res.data));
       })
       .catch((err) => {

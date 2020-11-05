@@ -29,7 +29,7 @@ class index extends PureComponent {
 
             <div className="movieTime text-left">
                {movieTimeList.map((item, index) => {
-                  console.log("item:", item);
+                  // console.log("item:", item);
                   return (
                      <Link
                         to={`/checkout/${item.maLichChieu}`}

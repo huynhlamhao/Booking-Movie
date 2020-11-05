@@ -6,26 +6,48 @@ import Showing from "../../components/Showing";
 import ListCinema from "../../components/ListCinema";
 import News from "../../components/News";
 import AppDownload from "../../components/AppDownload";
+import LazyLoad from "../../components/LazyLoad";
 import { fetchMoives } from "../../redux/actions/movieList";
 import { connect } from "react-redux";
 import { fetchCinemas } from "../../redux/actions/cinemaList";
+import "./style.css";
 // import { fetchCinemasList } from "../../redux/actions/cinema";
 
 class index extends Component {
+   constructor(props) {
+      super(props);
+      this.state = {
+         isLoading: false,
+      };
+   }
+   handleLazy() {
+      return new Promise((resolve) => {
+         setTimeout(() => resolve(this.setState({ isLoading: true })), 1000);
+      });
+   }
    render() {
       return (
          <div>
-            <Header></Header>
+            <div className={`${this.props.cinemaList ? "" : "overlay"}`}>
+               <Header></Header>
 
-            <Banner></Banner>
+               {this.state.isLoading ? (
+                  <>
+                     <Banner></Banner>
 
-            <Showing></Showing>
+                     <Showing></Showing>
 
-            <ListCinema></ListCinema>
+                     <ListCinema></ListCinema>
 
-            <News></News>
-            <AppDownload></AppDownload>
-            <Footer></Footer>
+                     <News></News>
+
+                     <AppDownload></AppDownload>
+                     <Footer></Footer>
+                  </>
+               ) : (
+                  <LazyLoad></LazyLoad>
+               )}
+            </div>
          </div>
       );
    }
@@ -33,7 +55,14 @@ class index extends Component {
    componentDidMount() {
       this.props.dispatch(fetchMoives);
       this.props.dispatch(fetchCinemas);
+      this.handleLazy();
    }
 }
 
-export default connect()(index);
+const mapStateToProps = (state) => {
+   return {
+      cinemaList: state.cinema.listCinemas,
+      listMovie: state.movie.movieList,
+   };
+};
+export default connect(mapStateToProps)(index);

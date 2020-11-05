@@ -1,7 +1,9 @@
 import React, { Component, PureComponent } from "react";
 import { connect } from "react-redux";
+
 import DetailCalendar from "../DetailCalendar";
 import CinemaLogo from "../logoCinemaDetail";
+import LazyLoad from "../../LazyLoad";
 
 import "./style.css";
 class index extends PureComponent {
@@ -27,7 +29,7 @@ class index extends PureComponent {
       } = this.props.item;
 
       // console.log("lichChieuFilter:", lichChieu);
-      return (
+      return tenPhim ? (
          <div className="detail">
             <div className=" movieDetailInfo">
                <img src={hinhAnh} alt="" className="blurImg" />
@@ -79,12 +81,12 @@ class index extends PureComponent {
                      </div>
                      <div className="col-sm-2">
                         {/* <div class="c100 p70 green w-100">
-                           <span>70%</span>
-                           <div class="slice">
-                              <div class="bar"></div>
-                              <div class="fill"></div>
-                           </div>
-                        </div> */}
+                     <span>70%</span>
+                     <div class="slice">
+                        <div class="bar"></div>
+                        <div class="fill"></div>
+                     </div>
+                  </div> */}
                      </div>
                   </div>
                </div>
@@ -198,6 +200,8 @@ class index extends PureComponent {
                </div>
             </div>
          </div>
+      ) : (
+         <LazyLoad></LazyLoad>
       );
    }
 }
