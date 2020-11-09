@@ -4,7 +4,15 @@ export default class index extends Component {
    render() {
       return (
          <div id="news">
-            <div className="container py-5 ">
+            <div className="container pb-5 ">
+               <div className="text-center">
+                  <img
+                     width="100%"
+                     height="100px"
+                     src="https://tix.vn/app/assets/img/icons/back-news.png"
+                     alt=""
+                  />
+               </div>
                <ul className="nav nav-tabs navCenter" id="myTab" role="tablist">
                   <li className="nav-item" role="presentation">
                      <a
@@ -60,9 +68,9 @@ export default class index extends Component {
                               2/Peninsula) vừa chính thức tung trailer hé lộ
                               những tình tiết mới
                            </p>
-                           <i class="fas fa-thumbs-up"></i>
+                           <i className="fas fa-thumbs-up"></i>
                            <span className="ml-1 mr-2">1</span>
-                           <i class="fas fa-comment"></i>
+                           <i className="fas fa-comment"></i>
                            <span className="ml-1 mr-2">0</span>
                         </div>
                         <div className="col-6 p-2">
@@ -84,9 +92,9 @@ export default class index extends Component {
                               cùng trailer đặc biệt, đồng thời chia sẻ không ít
                               thông tin lý thú
                            </p>
-                           <i class="fas fa-thumbs-up"></i>
+                           <i className="fas fa-thumbs-up"></i>
                            <span className="ml-1 mr-2">1</span>
-                           <i class="fas fa-comment"></i>
+                           <i className="fas fa-comment"></i>
                            <span className="ml-1 mr-2">0</span>
                         </div>
                      </div>
@@ -110,9 +118,9 @@ export default class index extends Component {
                               2/Peninsula) vừa chính thức tung trailer hé lộ
                               những tình tiết mới
                            </p>
-                           <i class="fas fa-thumbs-up"></i>
+                           <i className="fas fa-thumbs-up"></i>
                            <span className="ml-1 mr-2">1</span>
-                           <i class="fas fa-comment"></i>
+                           <i className="fas fa-comment"></i>
                            <span className="ml-1 mr-2">0</span>
                         </div>
                         <div className="col-4 p-2">
@@ -134,9 +142,9 @@ export default class index extends Component {
                               2/Peninsula) vừa chính thức tung trailer hé lộ
                               những tình tiết mới
                            </p>
-                           <i class="fas fa-thumbs-up"></i>
+                           <i className="fas fa-thumbs-up"></i>
                            <span className="ml-1 mr-2">1</span>
-                           <i class="fas fa-comment"></i>
+                           <i className="fas fa-comment"></i>
                            <span className="ml-1 mr-2">0</span>
                         </div>
                         <div className="col-4 p-2">

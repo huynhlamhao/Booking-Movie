@@ -1,7 +1,7 @@
 import React, { PureComponent } from "react";
 import { connect } from "react-redux";
 import { fetchCinemasShowTime } from "../../../redux/actions/cinemaShowTime";
-import "./style.css";
+
 class index extends PureComponent {
    // renderCinemaSystemLogo=()=>{
 

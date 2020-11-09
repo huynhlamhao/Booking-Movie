@@ -2,7 +2,7 @@ import React, { PureComponent } from "react";
 import { connect } from "react-redux";
 import { fetchCinemasList } from "../../../redux/actions/cinema";
 
-import "./style.css";
+
 class index extends PureComponent {
    handleHeThongRap = (e) => {
       // console.log("logoprops", this.props.logo);

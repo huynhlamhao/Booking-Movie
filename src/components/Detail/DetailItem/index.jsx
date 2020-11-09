@@ -1,4 +1,4 @@
-import React, { Component, PureComponent } from "react";
+import React, { PureComponent } from "react";
 import { connect } from "react-redux";
 
 import DetailCalendar from "../DetailCalendar";
@@ -7,6 +7,9 @@ import LazyLoad from "../../LazyLoad";
 
 import "./style.css";
 class index extends PureComponent {
+   handleBook = () => {
+      document.getElementById("myTab").scrollIntoView({ behavior: "smooth" });
+   };
    renderLogoCinema = () => {
       // console.log("logoCInema", this.props.cinemaLogoList);
       return this.props.cinemaLogoList.map((item, index) => {
@@ -14,9 +17,16 @@ class index extends PureComponent {
       });
    };
    renderCalendar = () => {
-      return this.props.calendar.map((item, index) => {
-         return <DetailCalendar item={item} key={index}></DetailCalendar>;
-      });
+      console.log(this.props.calendar);
+      return this.props.calendar.length !== 0 ? (
+         this.props.calendar.map((item, index) => {
+            return <DetailCalendar item={item} key={index}></DetailCalendar>;
+         })
+      ) : (
+         <h5 className="text-center mt-5 text-danger font-weight-bold">
+            Không có lịch,vui lòng chọn rạp khác
+         </h5>
+      );
    };
    render() {
       const {
@@ -24,7 +34,7 @@ class index extends PureComponent {
          hinhAnh,
          trailer,
          ngayKhoiChieu,
-         lichChieu,
+
          moTa,
       } = this.props.item;
 
@@ -77,16 +87,21 @@ class index extends PureComponent {
                            </h2>
                         </div>
                         <p>100 phút - 0 IMDb - 2D/Digita</p>
-                        <button className="btn btn-danger">Mua vé</button>
+                        <button
+                           onClick={this.handleBook}
+                           className="btn btn-danger"
+                        >
+                           Mua vé
+                        </button>
                      </div>
                      <div className="col-sm-2">
                         {/* <div class="c100 p70 green w-100">
-                     <span>70%</span>
-                     <div class="slice">
-                        <div class="bar"></div>
-                        <div class="fill"></div>
-                     </div>
-                  </div> */}
+            <span>70%</span>
+            <div class="slice">
+               <div class="bar"></div>
+               <div class="fill"></div>
+            </div>
+         </div> */}
                      </div>
                   </div>
                </div>
@@ -203,6 +218,9 @@ class index extends PureComponent {
       ) : (
          <LazyLoad></LazyLoad>
       );
+   }
+   componentDidMount() {
+      window.scrollTo(0, 0);
    }
 }
 const mapStateToProps = (state) => {

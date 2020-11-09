@@ -5,7 +5,7 @@ import { fetchCheckOut } from "../../../redux/actions/checkout";
 
 class index extends Component {
    render() {
-      // console.log("item", this.props.item);
+      console.log("item", this.props.item);
       return (
          <div>
             {this.props.item ? (

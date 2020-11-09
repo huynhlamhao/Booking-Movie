@@ -1,11 +1,10 @@
-import React, { Component, lazy, Suspense } from "react";
+import React, { Component } from "react";
 import { connect } from "react-redux";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
-import LazyLoad from "../../components/LazyLoad";
+
 import CheckOut from "../../components/CheckOut";
 import { fetchCheckOut } from "../../redux/actions/checkout";
-// const CheckOut = lazy(() => import("../../components/CheckOut"));
 
 class index extends Component {
    constructor(props) {
@@ -20,18 +19,16 @@ class index extends Component {
       });
    }
    render() {
-      console.log(this.state.isLoading);
+      const token = JSON.parse(localStorage.getItem("userInfo"));
       return (
          <div>
             <Header></Header>
 
-            
-            {this.state.isLoading ? (
+            {token ? (
                <CheckOut></CheckOut>
             ) : (
-               <LazyLoad></LazyLoad>
+               this.props.history.replace("/signin")
             )}
-            
 
             <Footer></Footer>
          </div>
@@ -43,5 +40,9 @@ class index extends Component {
       this.handleLazy();
    }
 }
-
-export default connect()(index);
+const mapStateToProps = (state) => {
+   return {
+      userInfo: state.auth.user,
+   };
+};
+export default connect(mapStateToProps)(index);

@@ -27,10 +27,17 @@ class index extends PureComponent {
    };
    render() {
       return (
-         <div id="cinema" className="container my-5 bg-light">
-            <h1 className="text-center">Hệ thống rạp và lịch chiếu</h1>
+         <div id="cinema" className="container mb-5">
+            <div className="text-center">
+               <img
+                  width="100%"
+                  height="100px"
+                  src="https://tix.vn/app/assets/img/icons/back-news.png"
+                  alt=""
+               />
+            </div>
             <div className="row">
-               <div className="col-1 border p-2">
+               <div className="col-1 border p-2 crollBar">
                   <div
                      className="nav flex-column nav-pills"
                      id="v-pills-tab"

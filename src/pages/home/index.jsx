@@ -7,6 +7,7 @@ import ListCinema from "../../components/ListCinema";
 import News from "../../components/News";
 import AppDownload from "../../components/AppDownload";
 import LazyLoad from "../../components/LazyLoad";
+import SignUp from "../SignUp";
 import { fetchMoives } from "../../redux/actions/movieList";
 import { connect } from "react-redux";
 import { fetchCinemas } from "../../redux/actions/cinemaList";
@@ -42,6 +43,7 @@ class index extends Component {
                      <News></News>
 
                      <AppDownload></AppDownload>
+
                      <Footer></Footer>
                   </>
                ) : (

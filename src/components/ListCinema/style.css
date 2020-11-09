@@ -8,20 +8,41 @@
 }
 .crollBar {
    overflow: overlay;
-   height: 800px;
+   height: 500px;
 }
 .crollBar::-webkit-scrollbar {
-   width: 6px;
+   width: 3px;
    /* background-color: red; */
 }
 .crollBar::-webkit-scrollbar-track {
    box-shadow: inset 0 0 5px grey;
-   border-radius: 30%;
 }
 .crollBar::-webkit-scrollbar-thumb {
    background-color: red;
-   border-radius: 30%;
 }
 .crollBar::-webkit-scrollbar-thumb:hover {
    background: #b30000;
+}
+.cinema__logo {
+   opacity: 0.5;
+}
+.cinema__logo:hover {
+   opacity: 1;
+}
+.nav-pills .active {
+   opacity: 1;
+}
+.cinemaNameColor {
+   color: #8bc541;
+   font-weight: bold;
+}
+.movieTimeBtn {
+   background-color: #d5d5d5;
+   margin: 9px;
+   box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
+      0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+}
+.movieTimeBtn:hover {
+   box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+      0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
 }

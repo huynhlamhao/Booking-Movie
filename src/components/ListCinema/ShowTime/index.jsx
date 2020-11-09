@@ -2,7 +2,7 @@ import React, { PureComponent } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { fetchCheckOut } from "../../../redux/actions/checkout";
-import "./style.css";
+
 class index extends PureComponent {
    constructor(props) {
       super(props);
@@ -10,6 +10,7 @@ class index extends PureComponent {
    }
 
    render() {
+      const user = JSON.parse(localStorage.getItem("userInfo"));
       // console.log(this.props.item);
       const { tenPhim, hinhAnh, lstLichChieuTheoPhim } = this.props.item;
       const movieTimeList = lstLichChieuTheoPhim.filter((item) => {
@@ -32,7 +33,7 @@ class index extends PureComponent {
                   // console.log("item:", item);
                   return (
                      <Link
-                        to={`/checkout/${item.maLichChieu}`}
+                        to={user ? `/checkout/${item.maLichChieu}` : `/signin`}
                         key={index}
                         className="btn movieTimeBtn"
                         onClick={() => {

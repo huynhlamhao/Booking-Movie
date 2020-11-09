@@ -152,7 +152,7 @@ class index extends Component {
                   </div>
                   <div className="col-sm-3">
                      <a
-                        target="_blank"
+                        rel="noreferrer"
                         href="http://online.gov.vn/Home/WebDetails/62782?AspxAutoDetectCookieSupport=1 "
                      >
                         <img

@@ -53,7 +53,7 @@ const reducer = (state = initialState, { type, payLoad }) => {
          state.detailItem = payLoad;
          return { ...state };
       case SET_MOVIE_DETAIL_CAL:
-         console.log("payload", payLoad);
+         // console.log("payload", payLoad);
          let calFilter = [];
          if (state.detailItem.lichChieu) {
             calFilter = state.detailItem.lichChieu.filter((item) => {

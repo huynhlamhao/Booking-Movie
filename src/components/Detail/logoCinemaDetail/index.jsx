@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchDetailCal } from "../../../redux/actions/movieCalendar";
+
 class index extends Component {
    handleHeThongRap = () => {
       this.props.dispatch(fetchDetailCal(this.props.logo.maHeThongRap));
@@ -25,6 +26,9 @@ class index extends Component {
             />
          </a>
       );
+   }
+   componentDidMount() {
+      this.props.dispatch(fetchDetailCal("BHDStar"));
    }
 }
 
