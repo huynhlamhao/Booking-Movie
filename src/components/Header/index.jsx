@@ -57,7 +57,9 @@ class index extends Component {
                         <NavLink
                            className="nav-link text-danger font-weight-bold"
                            to="/"
-                           href="#header"
+                           onClick={() => {
+                              this.handleScroll("header");
+                           }}
                         >
                            Trang Chủ
                         </NavLink>
@@ -88,7 +90,9 @@ class index extends Component {
                         <NavLink
                            className="nav-link text-danger font-weight-bold"
                            to="/"
-                           href="#news"
+                           onClick={() => {
+                              this.handleScroll("news");
+                           }}
                         >
                            Tin tức
                         </NavLink>

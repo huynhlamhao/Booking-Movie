@@ -23,19 +23,19 @@ nav {
    position: fixed !important;
    width: 100%;
    height: 60px;
-   background-color: transparent;
+   background-color: rgba(255, 255, 255, 0.85);
    box-shadow: 0 5px 15px rgba(70, 50, 50, 0.1);
    z-index: 9;
    font-weight: 500;
 }
 .head {
    height: 60px;
-   position: relative;
+   /* position: relative;
    margin: 0;
-   width: 100%;
-   /* box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); */
+   width: 100%; */
+   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
-.head::before {
+/* .head::before {
    content: "";
    width: 100%;
    height: 100%;
@@ -44,4 +44,4 @@ nav {
    left: 0;
    background-attachment: fixed;
    filter: blur(5px);
-}
+} */
