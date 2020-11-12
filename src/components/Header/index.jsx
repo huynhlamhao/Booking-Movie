@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import "./style.css";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
+import { Link } from "@material-ui/core";
 
 class index extends Component {
    constructor(props) {
@@ -104,12 +105,13 @@ class index extends Component {
                            {this.state.user.taiKhoan}
                            <i className="fas fa-user"></i>
                         </p>
-                        <button
+                        <Link
                            onClick={this.handleLogout}
                            className="btn btn-danger logout"
+                           to="/"
                         >
                            Đăng xuất
-                        </button>
+                        </Link>
                      </div>
                   ) : (
                      <NavLink to="/signin" className="m-4 text-danger">
@@ -123,16 +125,11 @@ class index extends Component {
    }
    componentDidMount() {
       const token = JSON.parse(localStorage.getItem("userInfo"));
-      console.log(token);
+      // console.log(token);
       if (token) {
-         console.log("logged");
+         // console.log("logged");
          this.setState({ isLogin: true, user: token });
       }
-
-      // if (token) {
-      //    // console.log("hahaha");
-      //    this.props.dispatch(creactAction(SET_TOKEN, token));
-      // }
    }
 }
 const mapStateToProps = (state) => {

@@ -21,7 +21,7 @@ const signUpSchema = yup.object().shape({
 });
 class index extends Component {
    _handleSubmit = (values) => {
-      console.log(values);
+      // console.log(values);
       signUp(values, () => {
          alert("Đăng ký thành công!");
          this.props.history.replace("/signin");

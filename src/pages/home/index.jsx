@@ -7,7 +7,7 @@ import ListCinema from "../../components/ListCinema";
 import News from "../../components/News";
 import AppDownload from "../../components/AppDownload";
 import LazyLoad from "../../components/LazyLoad";
-import SignUp from "../SignUp";
+
 import { fetchMoives } from "../../redux/actions/movieList";
 import { connect } from "react-redux";
 import { fetchCinemas } from "../../redux/actions/cinemaList";
@@ -29,27 +29,25 @@ class index extends Component {
    render() {
       return (
          <div>
-            <div className={`${this.props.cinemaList ? "" : "overlay"}`}>
-               <Header></Header>
+            <Header></Header>
 
-               {this.state.isLoading ? (
-                  <>
-                     <Banner></Banner>
+            {this.state.isLoading ? (
+               <>
+                  <Banner></Banner>
 
-                     <Showing></Showing>
+                  <Showing></Showing>
 
-                     <ListCinema></ListCinema>
+                  <ListCinema></ListCinema>
 
-                     <News></News>
+                  <News></News>
 
-                     <AppDownload></AppDownload>
+                  <AppDownload></AppDownload>
 
-                     <Footer></Footer>
-                  </>
-               ) : (
-                  <LazyLoad></LazyLoad>
-               )}
-            </div>
+                  <Footer></Footer>
+               </>
+            ) : (
+               <LazyLoad></LazyLoad>
+            )}
          </div>
       );
    }

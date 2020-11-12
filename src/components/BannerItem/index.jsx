@@ -22,16 +22,29 @@ class index extends Component {
             />
             <div className="carousel-overlay">
                <a
-                  className="venobox play-trailer"
+                  class="btn btn-danger venoboxvid btn-lg vbox-item"
+                  data-gall="gall-video"
+                  data-autoplay="true"
+                  data-vbtype="video"
+                  href={TraiLer}
+               >
+                  ytb
+                  <img
+                     src="https://tix.vn/app/assets/img/icons/play-video.png"
+                     alt="playIcon"
+                  />
+               </a>
+               {/* <a
+                  className="venobox_custom play-trailer"
                   data-autoplay="true"
                   data-vbtype="video"
                   href={TraiLer}
                >
                   <img
                      src="https://tix.vn/app/assets/img/icons/play-video.png"
-                     alt=""
+                     alt="playIcon"
                   />
-               </a>
+               </a> */}
             </div>
          </div>
       );

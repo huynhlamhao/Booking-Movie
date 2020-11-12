@@ -7,17 +7,6 @@ import CheckOut from "../../components/CheckOut";
 import { fetchCheckOut } from "../../redux/actions/checkout";
 
 class index extends Component {
-   constructor(props) {
-      super(props);
-      this.state = {
-         isLoading: false,
-      };
-   }
-   handleLazy() {
-      return new Promise((resolve) => {
-         setTimeout(() => resolve(this.setState({ isLoading: true })), 1000);
-      });
-   }
    render() {
       const token = JSON.parse(localStorage.getItem("userInfo"));
       return (
@@ -37,12 +26,7 @@ class index extends Component {
    componentDidMount() {
       this.props.dispatch(fetchCheckOut(this.props.match.params.checkoutId));
       window.scrollTo(0, 0);
-      this.handleLazy();
    }
 }
-const mapStateToProps = (state) => {
-   return {
-      userInfo: state.auth.user,
-   };
-};
-export default connect(mapStateToProps)(index);
+
+export default connect()(index);

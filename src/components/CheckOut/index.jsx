@@ -2,27 +2,56 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import LazyLoad from "../LazyLoad";
 import ShowChair from "./ShowChair";
+import { bookingTicket } from "../../redux/actions/bookingTicket";
+
 import "./style.css";
+
 class index extends Component {
+   constructor(props) {
+      super(props);
+      this.state = {
+         isLoading: false,
+      };
+   }
+   // điều khiển loading
+   handleLazy() {
+      return new Promise((resolve) => {
+         setTimeout(() => resolve(this.setState({ isLoading: true })), 2000);
+      });
+   }
+   // render danh sách ghế
    renderChairList = () => {
       return this.props.checkoutInfo.danhSachGhe.map((item, index) => {
          return <ShowChair chair={item} index={index} key={index}></ShowChair>;
       });
    };
-
+   // đặt vé
+   handleBookingTicket = () => {
+      this.props.dispatch(
+         bookingTicket(this.props.ticket, () => {
+            const ss = window.confirm(
+               "Đặt vé thành công!!!!!! Bạn có muốn về trang chủ?"
+            );
+            if (ss) {
+               window.location.href = "/";
+            } else {
+               window.location.reload();
+            }
+         })
+      );
+   };
    render() {
+      let totalCount = 0;
+      this.props.selectedChair.map((item) => {
+         return (totalCount += item.giaVe);
+      });
+      const formatter = new Intl.NumberFormat("vn-VN");
+      const { email, soDT } = JSON.parse(localStorage.getItem("userInfo"));
+
       const { thongTinPhim, danhSachGhe } = this.props.checkoutInfo;
       //   console.log(danhSachGhe);
-      return thongTinPhim && danhSachGhe ? (
+      return thongTinPhim && danhSachGhe && this.state.isLoading ? (
          <div className="row checkout  m-0">
-            {/* <div className="col-sm-2 p-0 pr-2">
-               <img
-                  src={thongTinPhim.hinhAnh}
-                  alt=""
-                  width="100%"
-                  height="100%"
-               />
-            </div> */}
             <div className="col-sm-9 pl-5">
                <div className="text-center py-4">
                   <h5>{thongTinPhim.tenCumRap}</h5>
@@ -54,7 +83,9 @@ class index extends Component {
             <div className="col-sm-3 border p-0">
                <div className="ticket">
                   <div className="ticketTotal">
-                     <h2 className="text-success">0 đ</h2>
+                     <h2 className="text-success">
+                        {formatter.format(totalCount)}đ
+                     </h2>
                   </div>
                   <div className="ticketInfo">
                      <div
@@ -74,22 +105,35 @@ class index extends Component {
                         </span>
                      </div>
                      <div className="w-50">
-                        <img src={thongTinPhim.hinhAnh} alt="" width="100%" />
+                        <img
+                           src={thongTinPhim.hinhAnh}
+                           alt={thongTinPhim.tenPhim}
+                           width="100%"
+                           height="250px"
+                        />
                      </div>
                   </div>
                   <div className="ticketChair">
                      <p>
-                        Ghế:
+                        Ghế:&ensp;
                         {this.props.selectedChair.map((item, index) => {
-                           return <span>{item.stt},</span>;
+                           return (
+                              <span key={index}>
+                                 <strong>{item.stt}</strong>({item.loaiGhe})
+                              </span>
+                           );
                         })}
                      </p>
                   </div>
                   <div className="accountInfo ">
-                     <p>Email:</p>
+                     <p>
+                        Email: <strong>{email}</strong>
+                     </p>
                   </div>
                   <div className="accountInfo ">
-                     <p>Phone:</p>
+                     <p>
+                        Phone: <strong>{soDT}</strong>
+                     </p>
                   </div>
                   <div className="ticketRefund">
                      <img
@@ -105,12 +149,27 @@ class index extends Component {
                      </span>
                   </div>
                </div>
-               <button className="btn btn-success datve">Đặt vé</button>
+               {this.props.selectedChair.length !== 0 ? (
+                  <button
+                     className="btn btn-success datve"
+                     onClick={this.handleBookingTicket}
+                     type="button"
+                  >
+                     Đặt vé
+                  </button>
+               ) : (
+                  <button className="btn btn-success datve disabled">
+                     Đặt vé
+                  </button>
+               )}{" "}
             </div>
          </div>
       ) : (
          <LazyLoad></LazyLoad>
       );
+   }
+   componentDidMount() {
+      this.handleLazy();
    }
 }
 const mapStateToProps = (state) => {
@@ -118,6 +177,7 @@ const mapStateToProps = (state) => {
       logo: state.cinema.cinemaSystemLogo,
       checkoutInfo: state.checkout.checkoutInfo,
       selectedChair: state.checkout.selectedChair,
+      ticket: state.checkout.booked,
    };
 };
 export default connect(mapStateToProps)(index);

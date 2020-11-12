@@ -6,6 +6,7 @@ export const SET_CINEMA_LIST = "cinema/SET_CINEMA_LIST";
 export const SET_CINEMA_SHOWTIME = "cinema/SET_CINEMA_SHOWTIME";
 
 export const SET_CHECKOUT = "checkout/SET_CHECKOUT";
+export const BOOKING_TICKET = "checkout/BOOKING_TICKET";
 export const SET_SELECTED_CHAIR = "checkout/SET_SELECTED_CHAIR";
 
 export const SET_TOKEN = "auth/SET_TOKEN";

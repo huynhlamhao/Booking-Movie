@@ -1,12 +1,16 @@
 import axios from "axios";
 
-const createConnector = () => {
+const createConnector = (customConfig) => {
    const config = {};
-   const token = localStorage.getItem("token");
+   const token = JSON.parse(localStorage.getItem("userInfo"));
+
    if (token) {
-      config.header = { Authorizon: "Beaber" + token };
+      config.headers = {
+         Authorization: "Bearer " + token.accessToken,
+      };
    }
-   return axios.create(config);
+
+   return axios({ ...customConfig, ...config });
 };
-const connector = createConnector();
-export default connector;
+// const connector = createConnector();
+export default createConnector;

@@ -13,28 +13,36 @@ class index extends Component {
       const { loaiGhe, daDat } = this.props.chair;
       return (
          <div className="col-sm-1 ">
-            <button
-               className={`btn ${
-                  this.state.isBooking
-                     ? "text-success"
-                     : "text-primary" && daDat
-                     ? "text-secondary disabled"
-                     : "text-primary" && loaiGhe === "Thuong"
-                     ? "text-primary"
-                     : "text-warning"
-               }`}
-               //
-               onClick={() => {
-                  this.setState({
-                     ...this.state.isBooking,
-                     isBooking: !this.state.isBooking,
-                  });
-                  this.props.dispatch(fetchSelectedChair(this.props.chair));
-                  // console.log(this.state.isBooking);
-               }}
-            >
-               <i className="fas fa-couch"></i>
-            </button>
+            {daDat ? (
+               <button
+                  className="btn text-secondary disabled"
+                  onClick={() => {
+                     alert("Ghế đã đặt vui lòng chọn ghế khác!!");
+                  }}
+               >
+                  <i className="fas fa-couch"></i>
+               </button>
+            ) : (
+               <button
+                  className={`btn ${
+                     this.state.isBooking
+                        ? "text-success"
+                        : "text-primary" && loaiGhe === "Thuong"
+                        ? "text-primary"
+                        : "text-warning"
+                  }`}
+                  //
+                  onClick={() => {
+                     this.setState({
+                        ...this.state.isBooking,
+                        isBooking: !this.state.isBooking,
+                     });
+                     this.props.dispatch(fetchSelectedChair(this.props.chair));
+                  }}
+               >
+                  <i className="fas fa-couch"></i>
+               </button>
+            )}
          </div>
       );
    }

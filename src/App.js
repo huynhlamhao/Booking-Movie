@@ -1,5 +1,5 @@
 import React, { Component, lazy, Suspense } from "react";
-import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom"; //ho tro chia page cho ung dung
+import { BrowserRouter, Route, Switch } from "react-router-dom"; //ho tro chia page cho ung dung
 
 // import Home from "../src/pages/home";
 import DetailMovie from "../src/pages/detailMovie";
