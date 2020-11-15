@@ -105,6 +105,7 @@ class index extends Component {
                            {this.state.user.taiKhoan}
                            <i className="fas fa-user"></i>
                         </p>
+
                         <Link
                            onClick={this.handleLogout}
                            className="btn btn-danger logout"

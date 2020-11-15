@@ -22,13 +22,12 @@ class index extends Component {
             />
             <div className="carousel-overlay">
                <a
-                  class="btn btn-danger venoboxvid btn-lg vbox-item"
+                  class=" venobox btn-lg vbox-item"
                   data-gall="gall-video"
                   data-autoplay="true"
                   data-vbtype="video"
                   href={TraiLer}
                >
-                  ytb
                   <img
                      src="https://tix.vn/app/assets/img/icons/play-video.png"
                      alt="playIcon"
