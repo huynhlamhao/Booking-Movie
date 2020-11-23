@@ -49,7 +49,7 @@ class index extends Component {
                </button>
                <div className="collapse navbar-collapse" id="collapsibleNavId">
                   <ul
-                     className={`navbar-nav mr-auto ml-auto mt-2 mt-lg-0  navBar `}
+                     className={`navbar-nav mr-auto ml-auto mt-2 mt-0  navBar  `}
                   >
                      <li className="nav-item active">
                         <NavLink

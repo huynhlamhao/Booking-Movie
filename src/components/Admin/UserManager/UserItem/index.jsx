@@ -47,22 +47,15 @@ class index extends PureComponent {
       });
    };
    render() {
-      console.log(this.props.item, "item");
-      const {
-         hoTen,
-         taiKhoan,
-         email,
-         soDt,
-         maLoaiNguoiDung,
-         maNhom,
-      } = this.props.item;
+      // console.log(this.props.data, "item");
+      const { hoTen, taiKhoan, email, soDt, maLoaiNguoiDung } = this.props.data;
       return (
          <tr>
             <td>{hoTen}</td>
             <td>{taiKhoan}</td>
             <td>{email}</td>
             <td>{soDt}</td>
-            <td>{maNhom}</td>
+
             <td>{maLoaiNguoiDung}</td>
 
             <td>

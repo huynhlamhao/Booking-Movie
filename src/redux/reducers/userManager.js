@@ -14,7 +14,7 @@ const reducer = (state = initialState, { type, payLoad }) => {
    switch (type) {
       case SET_USERLIST:
          state.userList = payLoad;
-         state.userListItem = payLoad.items;
+         state.userListItem = payLoad;
 
          return { ...state };
       case "SELECTED_USER":

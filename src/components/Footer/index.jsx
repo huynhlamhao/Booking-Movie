@@ -5,8 +5,8 @@ class index extends Component {
       return (
          <div id="footer" className="footer">
             <div className="container">
-               <div className="row hrline">
-                  <div className="col-sm-4 col-xs-12">
+               <div className="row ">
+                  <div className="col-sm-12 col-lg-4">
                      <p className="footerTitle">Tix</p>
                      <div className="footerList">
                         <ul className="w-50">
@@ -27,7 +27,7 @@ class index extends Component {
                         </ul>
                      </div>
                   </div>
-                  <div className="col-sm-4 col-xs-12">
+                  <div className="col-sm-12 col-lg-4">
                      <p className="footerTitle">Đối tác</p>
                      <div className="row col-sm-12">
                         <a href="https://www.cgv.vn/">
@@ -88,7 +88,7 @@ class index extends Component {
                         </a>{" "}
                      </div>
                   </div>
-                  <div className="col-sm-2 col-xs-6">
+                  <div className="col-6 col-lg-2">
                      <p className="footerTitle">Mobile App</p>
                      <a href="#footer">
                         <img
@@ -105,7 +105,7 @@ class index extends Component {
                         />
                      </a>
                   </div>
-                  <div className="col-sm-2 col-xs-6">
+                  <div className="col-6 col-lg-2">
                      <p className="footerTitle">Social</p>
                      <a href="#footer">
                         <img
@@ -123,15 +123,15 @@ class index extends Component {
                      </a>
                   </div>
                </div>
-               <hr />
+               <hr className="hrline" />
                <div className="row">
-                  <div className=" col-sm-3 licenseLogo">
+                  <div className="col-12  col-md-3 text-center licenseLogo p-3">
                      <img
                         src="https://tix.vn/app/assets/img/icons/zion-logo.jpg"
                         alt=""
                      />
                   </div>
-                  <div className="col-sm-6 text-light">
+                  <div className="col-12 col-md-6 text-light p-3">
                      <h6>
                         TIX –Dự án cuối khóa Lập trình Frontend
                         [CYBERFOT-ACADEMY]
@@ -150,7 +150,7 @@ class index extends Component {
                         </span>
                      </p>
                   </div>
-                  <div className="col-sm-3">
+                  <div className="col-12  col-md-3 text-center p-3">
                      <a
                         rel="noreferrer"
                         href="http://online.gov.vn/Home/WebDetails/62782?AspxAutoDetectCookieSupport=1 "
@@ -158,7 +158,7 @@ class index extends Component {
                         <img
                            src="https://s3img.vcdn.vn/123phim/2020/03/d1e6bd560daa9e20131ea8a0f62e87f8.png"
                            alt="alert"
-                           width="150px"
+                           width="50%"
                            height="50px"
                         />
                      </a>

@@ -9,9 +9,9 @@
 }
 .detailInfo {
    position: absolute;
-   top: 20%;
-   left: 15%;
-   right: 15%;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
 }
 .blurImg {
    position: absolute;
@@ -30,9 +30,9 @@
 }
 .movieDetailCalendar .detailCal {
    position: absolute;
-   top: 0%;
-   left: 10%;
-   right: 10%;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
 }
 .detail .nav-tabs .nav__unactive {
    color: white;

@@ -25,6 +25,7 @@ class index extends Component {
       this.props.dispatch(action);
    };
    render() {
+      // console.log(this.props.userListItem);
       return this.state.isLoading ? (
          <div className="container-fluid px-5">
             <h1 className="display-4 text-center my-3">Quản lý người dùng</h1>
@@ -34,48 +35,7 @@ class index extends Component {
                   Thêm người dùng
                </button>
             </div>
-            <UserList></UserList>
-            <ul className="pagination justify-content-center">
-               <li className="page-item disabled">
-                  <a
-                     className="page-link"
-                     href="true"
-                     tabIndex={-1}
-                     aria-disabled="true"
-                  >
-                     Previous
-                  </a>
-               </li>
-               <li className="page-item active">
-                  <a className="page-link" href="true">
-                     1
-                  </a>
-               </li>
-               <li className="page-item">
-                  <a
-                     className="btn page-link"
-                     href="true"
-                     onClick={() => {
-                        this.setState({ currentPage: 2 });
-                        this.props.dispatch(
-                           fetchUserList(this.state.currentPage)
-                        );
-                     }}
-                  >
-                     2
-                  </a>
-               </li>
-               <li className="page-item">
-                  <a className="page-link" href="true">
-                     3
-                  </a>
-               </li>
-               <li className="page-item">
-                  <a className="page-link" href="true">
-                     Next
-                  </a>
-               </li>
-            </ul>
+            <UserList item={this.props.userListItem}></UserList>
 
             {this.props.isShow && <ModalAddUser />}
          </div>
@@ -84,7 +44,7 @@ class index extends Component {
       );
    }
    componentDidMount = () => {
-      this.props.dispatch(fetchUserList(1));
+      this.props.dispatch(fetchUserList());
       this.handleLazy();
    };
 }
@@ -92,6 +52,7 @@ const mapStateToProps = (state) => {
    return {
       isShow: state.modal,
       userList: state.userManager.userList,
+      userListItem: state.userManager.userListItem,
    };
 };
 export default connect(mapStateToProps)(index);

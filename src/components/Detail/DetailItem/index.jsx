@@ -44,8 +44,8 @@ class index extends PureComponent {
             <div className=" movieDetailInfo">
                <img src={hinhAnh} alt="" className="blurImg" />
                <div className="container detailInfo">
-                  <div className="row w-75">
-                     <div className="col-sm-4">
+                  <div className="row">
+                     <div className="  col-4">
                         <div className="card border-0 ">
                            <img
                               className="card-img-top"
@@ -68,7 +68,7 @@ class index extends PureComponent {
                            </div>
                         </div>
                      </div>
-                     <div className="col-sm-6 text-light">
+                     <div className="col-8 text-light">
                         <div className="detailNgayChieu">
                            <p className=" m-0">
                               <strong>
@@ -93,15 +93,6 @@ class index extends PureComponent {
                         >
                            Mua vé
                         </button>
-                     </div>
-                     <div className="col-sm-2">
-                        {/* <div class="c100 p70 green w-100">
-            <span>70%</span>
-            <div class="slice">
-               <div class="bar"></div>
-               <div class="fill"></div>
-            </div>
-         </div> */}
                      </div>
                   </div>
                </div>
@@ -149,7 +140,7 @@ class index extends PureComponent {
                            aria-labelledby="home-tab"
                         >
                            <div className="row bg-light">
-                              <div className="col-1 border p-2">
+                              <div className="col-2 col-md-2 col-lg-1 border p-2">
                                  <div
                                     className="nav flex-column nav-pills"
                                     id="v-pills-tab"
@@ -159,7 +150,7 @@ class index extends PureComponent {
                                     {this.renderLogoCinema()}
                                  </div>
                               </div>
-                              <div className="col-11 border p-2 crollBar">
+                              <div className="col-10 col-md-10 col-lg-11 border p-2 crollBar">
                                  <div
                                     className="tab-content"
                                     id="v-pills-tabContent"
