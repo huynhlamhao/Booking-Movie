@@ -11,3 +11,9 @@ export const SET_SELECTED_CHAIR = "checkout/SET_SELECTED_CHAIR";
 
 export const SET_TOKEN = "auth/SET_TOKEN";
 export const SIGN_UP = "auth/SIGN_UP";
+export const SHOW_MODAL = "modal/SHOW_MODAL";
+
+export const SET_USERLIST = "admin/SET_USERLIST";
+export const DELETE_USER = "admin/DELETE_USER";
+export const UPDATE_USER = "admin/UPDATE_USER";
+export const ADD_USER = "admin/ADD_USER";

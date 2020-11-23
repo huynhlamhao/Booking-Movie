@@ -1,16 +1,17 @@
-import React, { Component, lazy, Suspense } from "react";
+import React, { Component } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom"; //ho tro chia page cho ung dung
-
-// import Home from "../src/pages/home";
+// import "../node_modules/react-modal-video/scss/modal-video.scss";
+import "../node_modules/react-modal-video/css/modal-video.min.css";
+import Home from "../src/pages/home";
 import DetailMovie from "../src/pages/detailMovie";
 import CheckOut from "./pages/checkout";
 import SignUp from "./pages/SignUp";
 import SignIn from "./pages/SignIn";
-import LazyLoad from "../src/components/LazyLoad";
+
 import { SET_TOKEN } from "./redux/types/type";
 import { creactAction } from "./redux/actions/";
 import { connect } from "react-redux";
-const Home = lazy(() => import("../src/pages/home"));
+import Admin from "./pages/Admin";
 
 class App extends Component {
    render() {
@@ -22,9 +23,9 @@ class App extends Component {
                <Route exact path="/checkout/:checkoutId" component={CheckOut} />
                <Route exact path="/signup/" component={SignUp} />
                <Route exact path="/signin/" component={SignIn} />
-               <Suspense fallback={<LazyLoad></LazyLoad>}>
-                  <Route exact path="/" component={Home} />
-               </Suspense>
+               <Route exact path="/admin/" component={Admin} />
+
+               <Route exact path="/" component={Home} />
             </Switch>
          </BrowserRouter>
       );

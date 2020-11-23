@@ -1,48 +1,63 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { fetchSelectedChair } from "../../../redux/actions/selectedChair";
+
+import VipChair from "../VipChair/";
+import NormalChair from "../NormalChair/";
 class index extends Component {
-   constructor(props) {
-      super(props);
-      this.state = {
-         isBooking: false,
-      };
-   }
    render() {
-      // console.log(this.props.chair);
-      const { loaiGhe, daDat } = this.props.chair;
       return (
-         <div className="col-sm-1 ">
-            {daDat ? (
-               <button
-                  className="btn text-secondary disabled"
-                  onClick={() => {
-                     alert("Ghế đã đặt vui lòng chọn ghế khác!!");
-                  }}
-               >
-                  <i className="fas fa-couch"></i>
-               </button>
-            ) : (
-               <button
-                  className={`btn ${
-                     this.state.isBooking
-                        ? "text-success"
-                        : "text-primary" && loaiGhe === "Thuong"
-                        ? "text-primary"
-                        : "text-warning"
-                  }`}
-                  //
-                  onClick={() => {
-                     this.setState({
-                        ...this.state.isBooking,
-                        isBooking: !this.state.isBooking,
-                     });
-                     this.props.dispatch(fetchSelectedChair(this.props.chair));
-                  }}
-               >
-                  <i className="fas fa-couch"></i>
-               </button>
-            )}
+         <div className="row">
+            <div className="col-1 ">
+               <div className="row  text-left">
+                  {this.props.nomalArr.slice(0, 18).map((item) => {
+                     return (
+                        <div className="col-6 p-0">
+                           <NormalChair normalChair={item}></NormalChair>
+                        </div>
+                     );
+                  })}
+               </div>
+            </div>
+            <div className="col-10 px-5 text-center">
+               <div className="row px-2">
+                  {this.props.nomalArr.slice(18, 54).map((item) => {
+                     return (
+                        <div className="col-1">
+                           <NormalChair normalChair={item}></NormalChair>
+                        </div>
+                     );
+                  })}
+               </div>
+               <div className="row px-2">
+                  {this.props.vipArr.slice(0, 60).map((item) => {
+                     return (
+                        <div className="col-1">
+                           <VipChair vipChair={item}></VipChair>
+                        </div>
+                     );
+                  })}
+               </div>
+               <div className="row px-2">
+                  {this.props.nomalArr.slice(24, 36).map((item) => {
+                     return (
+                        <div className="col-1">
+                           <NormalChair normalChair={item}></NormalChair>
+                        </div>
+                     );
+                  })}
+               </div>
+            </div>
+            <div className="col-1 ">
+               <div className="row text-right">
+                  {this.props.nomalArr.slice(54, 72).map((item) => {
+                     return (
+                        <div className="col-6 p-0">
+                           <NormalChair normalChair={item}></NormalChair>
+                        </div>
+                     );
+                  })}
+               </div>
+            </div>
          </div>
       );
    }

@@ -26,9 +26,6 @@ class index extends Component {
       });
    };
    render() {
-      // console.log("User", this.props.user);
-
-      // const token = JSON.parse(localStorage.getItem("userInfo"));
       return (
          <div id="header" className="head">
             <nav className="navbar navbar-expand-sm navbar-light">

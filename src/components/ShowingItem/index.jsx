@@ -1,10 +1,19 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./style.css";
+
 export default class index extends Component {
    render() {
       // console.log("movie", this.props.movie);
       const { maPhim, tenPhim, hinhAnh, trailer, danhGia } = this.props.movie;
+      // const videoid = trailer.match(
+      //    /(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/
+      // );
+      // if (videoid != null) {
+      //    console.log("video id = ", videoid[1]);
+      // } else {
+      //    console.log("The youtube url is not valid.");
+      // }
       return (
          <div className="card mt-5 mx-2">
             <img className="card-img showimg" src={hinhAnh} alt="" />
@@ -63,6 +72,7 @@ export default class index extends Component {
                      alt=""
                   />
                </a>
+
                <Link
                   to={`/detail/${maPhim}`}
                   className="btn btn-danger btnOverlay"

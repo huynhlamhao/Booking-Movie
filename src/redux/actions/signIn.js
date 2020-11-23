@@ -1,6 +1,7 @@
 import { creactAction } from ".";
 import connector from "../../configs/connector";
 import { SET_TOKEN } from "../types/type";
+import Swal from "sweetalert2";
 
 // async action
 export const signIn = (data, callBack) => {
@@ -11,16 +12,19 @@ export const signIn = (data, callBack) => {
          data,
       })
          .then((res) => {
-            console.log("data", res.data);
-
             dispatch(creactAction(SET_TOKEN, res.data));
             localStorage.setItem("userInfo", JSON.stringify(res.data));
             // luu token vao local
+
             callBack();
          })
          .catch((err) => {
-            console.log(err);
-            alert("tài khoản hoặc mật khẩu không đúng");
+            Swal.fire({
+               text: "Tài khoản hoặc mật khẩu không đúng!",
+               title: "Đã xảy ra lỗi!",
+               icon: "error", //error, sucess,warning,question
+               confirmButtonText: "Tiếp tục",
+            });
          });
    };
 };

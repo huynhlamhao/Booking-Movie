@@ -1,4 +1,5 @@
 import connector from "../../configs/connector";
+import Swal from "sweetalert2";
 
 // async action
 export const signUp = (values, callBack) => {
@@ -12,8 +13,13 @@ export const signUp = (values, callBack) => {
          callBack();
       })
       .catch((err) => {
-         console.log(err);
-         alert("tài khoản hoặc email đã tồn tại");
+         // console.log(err);
+         Swal.fire({
+            text: "Tài khoản hoặc email đã tồn tại!",
+            title: "Đã xảy ra lỗi!",
+            icon: "error", //error, sucess,warning,question
+            confirmButtonText: "Tiếp tục",
+         });
       });
 };
 // closure

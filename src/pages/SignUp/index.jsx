@@ -4,6 +4,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as yup from "yup";
 import "./style.css";
 import { signUp } from "../../redux/actions/signUp";
+import Swal from "sweetalert2";
 import { NavLink } from "react-router-dom";
 const signUpSchema = yup.object().shape({
    taiKhoan: yup.string().required("*Bắt buộc nhập!"),
@@ -23,7 +24,12 @@ class index extends Component {
    _handleSubmit = (values) => {
       // console.log(values);
       signUp(values, () => {
-         alert("Đăng ký thành công!");
+         // đăng ký thành công sẽ xuất ra thông báo vào chuyển về trang đăng nhập
+         Swal.fire({
+            title: "Đăng ký thành công!",
+            icon: "success", //error, success,warning,question
+            confirmButtonText: "Tiếp tục",
+         });
          this.props.history.replace("/signin");
       });
    };

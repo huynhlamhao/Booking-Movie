@@ -1,21 +1,23 @@
+import { creactAction } from ".";
 import connector from "../../configs/connector";
+import { ADD_USER } from "../types/type";
 import Swal from "sweetalert2";
-
-// async action
-export const bookingTicket = (data, callBack) => {
+// create async action
+export const addUser = (data, callback) => {
    return (dispatch) => {
       connector({
-         url: "https://movie0706.cybersoft.edu.vn/api/QuanLyDatVe/DatVe",
+         url: `https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/ThemNguoiDung`,
          method: "POST",
-         data: data,
+         data,
       })
          .then((res) => {
-            callBack();
+            console.log(res.data);
+            dispatch(creactAction(ADD_USER, data));
+            callback();
          })
          .catch((err) => {
-            console.log(err);
             Swal.fire({
-               text: "Đặt vé thất bại, vui lòng kiểm tra lại vé!",
+               text: "Tài khoản hoặc Email đã tồn tại!",
                title: "Đã xảy ra lỗi!",
                icon: "error", //error, sucess,warning,question
                confirmButtonText: "Tiếp tục",
@@ -23,4 +25,3 @@ export const bookingTicket = (data, callBack) => {
          });
    };
 };
-// closure

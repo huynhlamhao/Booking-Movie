@@ -8,9 +8,14 @@
    opacity: 0;
    transition: all 0.7s;
 }
+.play-trailer img {
+   width: 80px !important;
+   height: 80px !important;
+}
 .carousel-item:hover .play-trailer {
    opacity: 1;
 }
 .play-trailer:hover {
    opacity: 0.6 !important;
+   cursor: pointer;
 }

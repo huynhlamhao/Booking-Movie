@@ -23,12 +23,15 @@
    left: 50%;
    transform: translate(-50%, -50%);
 
-   width: 60px;
-   height: 60px;
+   width: 80px;
+   height: 80px;
    opacity: 0;
    transition: 0.5s;
 }
-
+.trailerimg img {
+   width: 80px;
+   height: 80px;
+}
 .film__overlay {
    position: absolute;
    bottom: 0;

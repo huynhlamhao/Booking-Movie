@@ -13,7 +13,7 @@ const signInSchema = yup.object().shape({
 });
 class index extends Component {
    _handleSubmit = (values) => {
-      // console.log(values);
+      console.log(values);
       this.props.dispatch(
          signIn(values, () => {
             alert("Đăng nhập thành công!");
