@@ -1,7 +1,7 @@
 import React, { PureComponent } from "react";
 import { connect } from "react-redux";
 
-import UserItem from "../UserItem";
+import MovieItem from "../MovieItem";
 
 class index extends PureComponent {
    constructor() {
@@ -12,7 +12,7 @@ class index extends PureComponent {
       };
    }
    chosePage = (event) => {
-      console.log("state:", this.state.currentPage);
+      // console.log("state:", this.state.currentPage);
 
       this.setState({
          currentPage: Number(event.target.id),
@@ -29,17 +29,7 @@ class index extends PureComponent {
          });
       }
    };
-   chosePageNextPrevTen = (ps) => {
-      if (ps === "nextTen") {
-         this.setState({
-            currentPage: this.state.currentPage + 10,
-         });
-      } else {
-         this.setState({
-            currentPage: this.state.currentPage - 10,
-         });
-      }
-   };
+
    select = (event) => {
       this.setState({
          usersPerPage: event.target.value,
@@ -62,7 +52,7 @@ class index extends PureComponent {
 
          return currentTodos.map((item, index) => {
             return (
-               <UserItem
+               <MovieItem
                   stt={index + 1 + (currentPage - 1) * usersPerPage}
                   key={index}
                   data={item}
@@ -84,32 +74,21 @@ class index extends PureComponent {
             <table className="table table-hover text-center">
                <thead>
                   <tr className="table-active">
-                     <th scope="col">Tên</th>
-                     <th scope="col">Tài Khoản</th>
-                     <th scope="col">Email</th>
-                     <th scope="col">Số điện thoại</th>
-                     <th scope="col">Mã người dùng</th>
-                     <th scope="col">Hành Động</th>
+                     <th scope="col">Mã phim</th>
+                     <th scope="col">Tên phim</th>
+                     <th scope="col">Trailer</th>
+                     <th scope="col">Hình Ảnh</th>
+
+                     <th scope="col">Đánh giá</th>
+                     <th scope="col">Mô tả</th>
+                     <th scope="col">Ngày khởi chiếu</th>
+                     <th scope="col">Hành động</th>
                   </tr>
                </thead>
                <tbody>{renderTodos()}</tbody>
             </table>
             <div className="table-responsive">
                <ul className="pagination justify-content-center">
-                  {this.state.currentPage <= 11 ? (
-                     <li className={`page-item disabled`}>
-                        <button className="page-link">Previous 10</button>
-                     </li>
-                  ) : (
-                     <li
-                        className={`page-item`}
-                        onClick={() => {
-                           this.chosePageNextPrevTen("prevTen");
-                        }}
-                     >
-                        <button className="page-link">Previous 10</button>
-                     </li>
-                  )}
                   {this.state.currentPage === 1 ? (
                      <li className={`page-item disabled`}>
                         <button
@@ -136,7 +115,7 @@ class index extends PureComponent {
                         </button>
                      </li>
                   )}
-                  {pageNumbers.slice(0, 4).map((number) => {
+                  {pageNumbers.map((number) => {
                      return this.state.currentPage === number ? (
                         <li
                            onClick={this.chosePage}
@@ -170,71 +149,7 @@ class index extends PureComponent {
                      );
                   })}
 
-                  {this.state.currentPage <= 4 ||
-                  this.state.currentPage >= 81 ? (
-                     <li id={this.state.currentPage} className="page-item ac">
-                        <button
-                           id={this.state.currentPage}
-                           className="page-link"
-                        >
-                           5
-                        </button>
-                     </li>
-                  ) : (
-                     <>
-                        <li className="page-item">
-                           <button className="page-link">...</button>
-                        </li>
-                        <li
-                           id={this.state.currentPage}
-                           className="page-item active"
-                        >
-                           <button
-                              id={this.state.currentPage}
-                              className="page-link"
-                           >
-                              {this.state.currentPage}
-                           </button>
-                        </li>
-                     </>
-                  )}
-                  <li className="page-item">
-                     <button className="page-link">...</button>
-                  </li>
-                  {pageNumbers.slice(80, pageNumbers.length).map((number) => {
-                     return this.state.currentPage === number ? (
-                        <li
-                           className="page-item active"
-                           key={number}
-                           id={number}
-                           onClick={this.chosePage}
-                        >
-                           <button
-                              id={number}
-                              onClick={this.chosePage}
-                              className="page-link"
-                           >
-                              {number}
-                           </button>
-                        </li>
-                     ) : (
-                        <li
-                           className="page-item "
-                           key={number}
-                           id={number}
-                           onClick={this.chosePage}
-                        >
-                           <button
-                              id={number}
-                              onClick={this.chosePage}
-                              className="page-link"
-                           >
-                              {number}
-                           </button>
-                        </li>
-                     );
-                  })}
-                  {this.state.currentPage ===
+                  {this.state.currentPage >
                   this.props.item.length / usersPerPage ? (
                      <li className={`page-item disabled`}>
                         <button className="page-link">Next</button>
@@ -247,21 +162,6 @@ class index extends PureComponent {
                         }}
                      >
                         <button className="page-link">Next</button>
-                     </li>
-                  )}
-                  {this.state.currentPage >=
-                  this.props.item.length / usersPerPage - 10 ? (
-                     <li className={`page-item disabled`}>
-                        <button className="page-link">Next 10</button>
-                     </li>
-                  ) : (
-                     <li
-                        className={`page-item`}
-                        onClick={() => {
-                           this.chosePageNextPrevTen("nextTen");
-                        }}
-                     >
-                        <button className="page-link">Next 10</button>
                      </li>
                   )}
                </ul>

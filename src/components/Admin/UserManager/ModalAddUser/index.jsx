@@ -20,6 +20,15 @@ class index extends Component {
             maNhom: "GP01",
             maLoaiNguoiDung: "KhachHang",
          },
+         resetForm: {
+            taiKhoan: "",
+            matKhau: "",
+            hoTen: "",
+            email: "",
+            soDt: "",
+            maNhom: "GP01",
+            maLoaiNguoiDung: "KhachHang",
+         },
          errors: {
             taiKhoan: "",
             matKhau: "",
@@ -38,7 +47,7 @@ class index extends Component {
    };
    handleChange = (event) => {
       let { name, value, type } = event.target;
-      console.log(name, value);
+      // console.log(name, value);
       let newUser = { ...this.state.user, [name]: value };
       let newErrors = { ...this.state.errors };
 
@@ -53,27 +62,49 @@ class index extends Component {
       if (type === "email") {
          const regexEmail = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
          if (!regexEmail.test(value)) {
+            // không hợp lệ
+
+            newErrors[name] = "Email không hợp lệ!!";
+         } else {
             // Hợp lệ
-            newErrors[name] = name + " không hợp lệ!!";
+            newErrors[name] = "";
+         }
+      }
+      // Kiểm tra pass hợp lệ
+      if (type === "password") {
+         const regexPassWord = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/;
+         if (!regexPassWord.test(value)) {
+            // Hợp lệ
+            newErrors[name] =
+               "Mật khẩu phải có ít 1 chữ hoa, 1 chữ , 1 số và tối thiểu 8 kí tự!";
          } else {
             // không hợp lệ
             newErrors[name] = "";
          }
       }
+      // Kiểm tra phone hợp lệ
+
+      if (type === "tel") {
+         const regexPhoneNumber = /((09|03|07|08|05)+([0-9]{8})\b)/g;
+         if (!regexPhoneNumber.test(value)) {
+            // Hợp lệ
+            newErrors[name] = "Số điện thoại không hợp lệ!";
+         } else {
+            // không hợp lệ
+            newErrors[name] = "";
+         }
+      }
+
       this.setState({
          user: newUser,
          errors: newErrors,
       });
-
-      // this.setState({
-      //    user: { ...this.state.user, [name]: value },
-      // });
    };
-   handleSetValue = () => {
+   handleSetValue = (event) => {
       // event.preventDefault();
+
       this.setState({
-         ...this.state.user,
-         user: this.state.user,
+         user: this.props.selectedUser,
       });
    };
    handleSubmit = (event) => {
@@ -175,7 +206,6 @@ class index extends Component {
       }
    };
    render() {
-      console.log(this.state.user);
       return (
          <div
             style={{
@@ -187,11 +217,12 @@ class index extends Component {
                height: "100%",
                display: "flex",
                alignItems: "center",
+               zIndex: 4,
             }}
          >
             <div className="bg-white w-50 mx-auto px-5 pb-3 rounded ">
                <h1 className="text-center display-4 m-0">Form User</h1>
-               <form onSubmit={this.handleSubmit}>
+               <form id="formModal" onSubmit={this.handleSubmit}>
                   <div className="form-group">
                      <label>Tài khoản</label>
                      <input
@@ -274,7 +305,7 @@ class index extends Component {
                         onChange={this.handleChange}
                         name="soDt"
                         value={this.state.user.soDt}
-                        type="phone"
+                        type="tel"
                         className="form-control"
                         required
                      />
@@ -333,20 +364,22 @@ class index extends Component {
                   >
                      Cancel
                   </button>
-                  <button
-                     type="button"
-                     className="btn btn-danger float-md-right"
-                     onClick={this.handleSetValue}
-                  >
-                     Nhập lại
-                  </button>
+                  {this.props.selectedUser && (
+                     <button
+                        type="button"
+                        className="btn btn-danger float-md-right"
+                        onClick={this.handleSetValue}
+                     >
+                        Nhập lại
+                     </button>
+                  )}
                </form>
             </div>
          </div>
       );
    }
    componentDidMount() {
-      console.log("selectedUser", this.props.selectedUser);
+      // console.log("selectedUser", this.props.selectedUser);
       this.props.selectedUser &&
          this.setState({
             user: this.props.selectedUser,

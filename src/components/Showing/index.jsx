@@ -7,9 +7,9 @@ import "./style.css";
 import ShowingItem from "../ShowingItem";
 class index extends Component {
    renderMovieList = () => {
-      // console.log(this.props.movieList);
+      console.log(this.props.movieList);
       return this.props.movieList.map((item, index) => {
-         // console.log(item);
+         console.log(item);
          return <ShowingItem key={index} movie={item}></ShowingItem>;
       });
    };

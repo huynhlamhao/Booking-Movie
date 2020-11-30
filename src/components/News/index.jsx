@@ -69,9 +69,9 @@ export default class index extends Component {
                               những tình tiết mới
                            </p>
                            <i className="fas fa-thumbs-up"></i>
-                           <span className="ml-1 mr-2">1</span>
+                           <span className="pl-1 pr-2">1</span>
                            <i className="fas fa-comment"></i>
-                           <span className="ml-1 mr-2">0</span>
+                           <span className="pl-1 pr-2">0</span>
                         </div>
                         <div className="col-6 p-2">
                            <img
@@ -93,13 +93,13 @@ export default class index extends Component {
                               thông tin lý thú
                            </p>
                            <i className="fas fa-thumbs-up"></i>
-                           <span className="ml-1 mr-2">1</span>
+                           <span className="pl-1 pr-2">1</span>
                            <i className="fas fa-comment"></i>
-                           <span className="ml-1 mr-2">0</span>
+                           <span className="pl-1 pr-2">0</span>
                         </div>
                      </div>
                      <div className="row">
-                        <div className="col-4 p-2">
+                        <div className="col-6 col-md-4 p-2">
                            <img
                               src="https://tix-truong.web.app/img/news/image1.png"
                               alt=""
@@ -119,11 +119,11 @@ export default class index extends Component {
                               những tình tiết mới
                            </p>
                            <i className="fas fa-thumbs-up"></i>
-                           <span className="ml-1 mr-2">1</span>
+                           <span className="pl-1 pr-2">1</span>
                            <i className="fas fa-comment"></i>
-                           <span className="ml-1 mr-2">0</span>
+                           <span className="pl-1 pr-2">0</span>
                         </div>
-                        <div className="col-4 p-2">
+                        <div className="col-6 col-md-4 p-2">
                            <img
                               src="https://tix-truong.web.app/img/news/image1.png"
                               alt=""
@@ -143,47 +143,47 @@ export default class index extends Component {
                               những tình tiết mới
                            </p>
                            <i className="fas fa-thumbs-up"></i>
-                           <span className="ml-1 mr-2">1</span>
+                           <span className="pl-1 pr-2">1</span>
                            <i className="fas fa-comment"></i>
-                           <span className="ml-1 mr-2">0</span>
+                           <span className="pl-1 pr-2">0</span>
                         </div>
-                        <div className="col-4 p-2">
-                           <div className="d-flex align-items-center">
+                        <div className="col-12 col-md-4 p-2">
+                           <div className="d-flex align-items-center p-2">
                               <img
                                  src="https://s3img.vcdn.vn/123phim/2020/08/6-da-o-die-n-ti-do-lam-nen-thanh-cong-cua-nhu-ng-bom-ta-n-di-nh-da-m-nha-t-hollywood-15966023547553.png"
                                  alt=""
                                  width="60px"
                                  height="60px"
                               />
-                              <span className="mx-2 newTitle">
+                              <span className="px-2 newTitle">
                                  <a href="#news">
                                     6 đạo diễn tỉ đô làm nên thành công của
                                     những bom... tấn đình đám nhất Hollywood
                                  </a>
                               </span>
                            </div>
-                           <div className="d-flex align-items-center">
+                           <div className="d-flex align-items-center p-2">
                               <img
                                  src="https://s3img.vcdn.vn/123phim/2020/08/gai-gia-lam-chieu-v-nhung-cuoc-doi-vuong-gia-15965999321682.png"
                                  alt=""
                                  width="60px"
                                  height="60px"
                               />
-                              <span className="mx-2 newTitle">
+                              <span className="px-2 newTitle">
                                  <a href="#news">
                                     Gái Già Lắm Chiêu V – Những cuộc đời vương
                                     giả
                                  </a>
                               </span>
                            </div>
-                           <div className="d-flex align-items-center">
+                           <div className="d-flex align-items-center p-2">
                               <img
                                  src="https://s3img.vcdn.vn/123phim/2020/07/kaity-nguyen-tro-thanh-my-nhan-moi-cua-vu-tru-gai-gia-lam-chieu-15959988694730.png"
                                  alt=""
                                  width="60px"
                                  height="60px"
                               />
-                              <span className="mx-2 newTitle">
+                              <span className="px-2 newTitle">
                                  <a href="#news">
                                     Kaity Nguyễn trở thành mỹ nhân mới của vũ
                                     trụ Gái Già Lắm Chiêu

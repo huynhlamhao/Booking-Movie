@@ -1,22 +1,20 @@
 import React, { PureComponent } from "react";
 import { connect } from "react-redux";
-import { deleteUser } from "../../../../redux/actions/deleteUser";
+import { deleteMovie } from "../../../../redux/actions/deleteMovie";
 import Swal from "sweetalert2";
 
 class index extends PureComponent {
-   handleEditUser = () => {
+   handleEditMovie = () => {
       const action = {
          type: "SHOW_MODAL",
       };
       this.props.dispatch(action);
-      //dispatch action set selectedUser
-      // console.log(this.props.data, "item");
-      //api danh sách phân trang lỗi Mã nhóm lấy về bị null nên gán mặc đình GP01
-      const data = { ...this.props.data, maNhom: "GP01" };
-      // console.log("data", data);
+      // dispatch action set selectedUser
+      console.log(this.props.data, "item");
+
       this.props.dispatch({
-         type: "SELECTED_USER",
-         payLoad: data,
+         type: "SELECTED_MOVIE",
+         payLoad: this.props.data,
       });
    };
    handleDeleteUser = () => {
@@ -24,7 +22,7 @@ class index extends PureComponent {
          showDenyButton: false,
          showCancelButton: true,
          icon: "warning",
-         title: "Bạn có chắc chắn muốn xóa người dùng này?",
+         title: "Bạn có chắc chắn muốn xóa mã phim này?",
          confirmButtonText: `Xóa`,
          confirmButtonColor: "#dc3545",
          cancelButtonText: "Hủy",
@@ -33,10 +31,10 @@ class index extends PureComponent {
          if (result.isConfirmed) {
             // nhấn xóa sẽ call api xóa
             this.props.dispatch(
-               deleteUser(this.props.data.taiKhoan, () => {
+               deleteMovie(this.props.data.maPhim, () => {
                   Swal.fire(
                      "Đã xóa thành công!",
-                     "Tài khoản: " + this.props.data.taiKhoan,
+                     "Mã phim: " + this.props.data.maPhim,
                      "success"
                   );
                })
@@ -48,19 +46,37 @@ class index extends PureComponent {
    };
    render() {
       // console.log(this.props.data, "item");
-      const { hoTen, taiKhoan, email, soDt, maLoaiNguoiDung } = this.props.data;
+      const {
+         maPhim,
+         tenPhim,
+         trailer,
+         hinhAnh,
+
+         danhGia,
+         moTa,
+         ngayKhoiChieu,
+      } = this.props.data;
+      const dateFormat =
+         ngayKhoiChieu.substr(8, 2) +
+         "-" +
+         ngayKhoiChieu.substr(5, 2) +
+         "-" +
+         ngayKhoiChieu.substr(0, 4);
+      // 2020 / 11 / 20;
       return (
          <tr>
-            <td>{hoTen}</td>
-            <td>{taiKhoan}</td>
-            <td>{email}</td>
-            <td>{soDt}</td>
-
-            <td>{maLoaiNguoiDung}</td>
-
+            <td>{maPhim}</td>
+            <td>{tenPhim}</td>
+            <td>{trailer}</td>
+            <td>
+               <img src={hinhAnh} width="100px" height="65px" alt={tenPhim} />
+            </td>
+            <td>{danhGia}</td>
+            <td className="trBreak">{moTa}</td>
+            <td>{dateFormat}</td>
             <td>
                <button
-                  onClick={this.handleEditUser}
+                  onClick={this.handleEditMovie}
                   className="btn btn-info mr-2"
                >
                   Sửa

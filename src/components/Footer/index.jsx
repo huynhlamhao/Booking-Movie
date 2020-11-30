@@ -107,20 +107,22 @@ class index extends Component {
                   </div>
                   <div className="col-6 col-lg-2">
                      <p className="footerTitle">Social</p>
-                     <a href="#footer">
-                        <img
-                           src="https://tix.vn/app/assets/img/icons/facebook-logo.png"
-                           alt="apple-logo"
-                           className="vslogo"
-                        />
-                     </a>
-                     <a href="#footer">
-                        <img
-                           src="https://tix.vn/app/assets/img/icons/zalo-logo.png"
-                           alt="android-logo"
-                           className="vslogo"
-                        />
-                     </a>
+                     <div className="text-left">
+                        <a href="#footer">
+                           <img
+                              src="https://tix.vn/app/assets/img/icons/facebook-logo.png"
+                              alt="apple-logo"
+                              className="vslogo"
+                           />
+                        </a>
+                        <a href="#footer">
+                           <img
+                              src="https://tix.vn/app/assets/img/icons/zalo-logo.png"
+                              alt="android-logo"
+                              className="vslogo"
+                           />
+                        </a>
+                     </div>
                   </div>
                </div>
                <hr className="hrline" />

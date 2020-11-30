@@ -1,16 +1,16 @@
 import React, { PureComponent } from "react";
 import { connect } from "react-redux";
-import { SearchUser } from "../../../../redux/actions/searchUser";
-import { fetchUserList } from "../../../../redux/actions/userList";
+import { fetchMoives } from "../../../../redux/actions/movieList";
+import { SearchMovie } from "../../../../redux/actions/searchMovie";
 
 class index extends PureComponent {
    handleChangeSearch = (e) => {
       console.log(e.target.value);
       const { value } = e.target;
       if (value) {
-         this.props.dispatch(SearchUser(e.target.value));
+         this.props.dispatch(SearchMovie(e.target.value));
       } else {
-         this.props.dispatch(fetchUserList());
+         this.props.dispatch(fetchMoives());
       }
    };
    render() {
@@ -19,7 +19,7 @@ class index extends PureComponent {
             <input
                type="text"
                className="form-control"
-               placeholder="Search"
+               placeholder="Nhập tên phim để tìm....."
                onChange={this.handleChangeSearch}
             />
          </div>

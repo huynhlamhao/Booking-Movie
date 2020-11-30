@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import LazyLoad from "react-lazyload";
+import LazyLoad from "../../LazyLoad";
 import { connect } from "react-redux";
 import { fetchUserList } from "../../../redux/actions/userList";
 import UserList from "./UserList";
@@ -15,7 +15,7 @@ class index extends Component {
    }
    handleLazy() {
       return new Promise((resolve) => {
-         setTimeout(() => resolve(this.setState({ isLoading: true })), 1000);
+         setTimeout(() => resolve(this.setState({ isLoading: true })), 2000);
       });
    }
    handleAddUser = () => {

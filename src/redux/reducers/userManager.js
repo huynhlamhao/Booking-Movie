@@ -6,18 +6,17 @@ import {
 } from "../types/type";
 
 let initialState = {
-   userList: {},
    userListItem: [],
    selectedUser: null,
 };
 const reducer = (state = initialState, { type, payLoad }) => {
    switch (type) {
       case SET_USERLIST:
-         state.userList = payLoad;
          state.userListItem = payLoad;
 
          return { ...state };
       case "SELECTED_USER":
+         // console.log(payLoad, "payload");
          state.selectedUser = payLoad;
          return { ...state };
       case UPDATE_USER:
@@ -35,7 +34,7 @@ const reducer = (state = initialState, { type, payLoad }) => {
             return item.taiKhoan === payLoad;
          });
          let cloneUserList = [...state.userListItem];
-         console.log("clone0", cloneUserList);
+
          if (index !== -1) {
             cloneUserList.splice(index, 1);
             [...state.userListItem] = cloneUserList;
@@ -47,6 +46,7 @@ const reducer = (state = initialState, { type, payLoad }) => {
             return item.taiKhoan !== payLoad.taiKhoan;
          });
          let cloneUserListItemAdd = [...state.userListItem];
+         console.log(indexAddUser);
          if (indexAddUser !== -1) {
             cloneUserListItemAdd = [...cloneUserListItemAdd, payLoad];
             state.userListItem = cloneUserListItemAdd;

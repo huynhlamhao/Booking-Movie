@@ -53,7 +53,7 @@ class index extends Component {
    }
 
    componentDidMount() {
-      this.props.dispatch(fetchMoives);
+      this.props.dispatch(fetchMoives());
       this.props.dispatch(fetchCinemas);
       this.handleLazy();
    }

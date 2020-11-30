@@ -17,14 +17,21 @@
 }
 .slideScreen {
    position: absolute;
-   bottom: 5px;
-   left: 30.6%;
    overflow: hidden;
+   top: 50%;
+   left: 50%;
    width: 39%;
+   transform: translate(-50%, -50%);
 }
 .rearPhone {
    object-fit: cover;
    padding: 0 28%;
+   position: absolute;
+   overflow: hidden;
+   top: 50%;
+   left: 50%;
+   width: 39%;
+   transform: translate(-50%, -50%);
 }
 .slideScreen .slick-list {
    border-radius: 20px;

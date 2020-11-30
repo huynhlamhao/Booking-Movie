@@ -4,6 +4,8 @@ import { NavLink } from "react-router-dom";
 import MovieManager from "../../components/Admin/MovieManager";
 import UserManager from "../../components/Admin/UserManager";
 import "./style.css";
+import Swal from "sweetalert2";
+
 export default class index extends Component {
    constructor(props) {
       super(props);
@@ -18,7 +20,12 @@ export default class index extends Component {
       });
    }
    chuyenHuongAdmin() {
-      alert("Bạn chưa đăng nhập hoặc không phải là quản trị!!!");
+      Swal.fire({
+         title: "Bạn không phải là quản trị!",
+         text: "Vui lòng đăng nhập bằng tài khoản quản trị",
+         icon: "error", //error, success,warning,question
+         confirmButtonText: "Đăng nhập",
+      });
       localStorage.removeItem("userInfo");
       this.props.history.replace("/signin");
    }
@@ -48,19 +55,8 @@ export default class index extends Component {
                         role="tablist"
                         aria-orientation="vertical"
                      >
-                        {/* <a
-                           class="nav-link"
-                           id="v-pills-home-tab"
-                           data-toggle="pill"
-                           href="#v-pills-home"
-                           role="tab"
-                           aria-controls="v-pills-home"
-                           aria-selected="true"
-                        >
-                           VỀ TRANG CHỦ
-                        </a> */}
                         <a
-                           className={`nav-link ${
+                           className={` effect ${
                               this.state.loadingOrder ? "active" : ""
                            }`}
                            id="v-pills-profile-tab"
@@ -69,16 +65,11 @@ export default class index extends Component {
                            role="tab"
                            aria-controls="v-pills-profile"
                            aria-selected="false"
-                           // onClick={() => {
-                           //    this.setState({
-                           //       loadingOrder: !this.state.loadingOrder,
-                           //    });
-                           // }}
                         >
                            Quản lý người dùng
                         </a>
                         <a
-                           className="nav-link"
+                           className=" effect"
                            id="v-pills-messages-tab"
                            data-toggle="pill"
                            href="#v-pills-messages"

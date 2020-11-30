@@ -6,7 +6,7 @@ import "../SignUp/style.css";
 import { signIn } from "../../redux/actions/signIn";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
-
+import Swal from "sweetalert2";
 const signInSchema = yup.object().shape({
    taiKhoan: yup.string().required("*Bắt buộc nhập!"),
    matKhau: yup.string().required("**Bắt buộc nhập!"),
@@ -16,7 +16,11 @@ class index extends Component {
       console.log(values);
       this.props.dispatch(
          signIn(values, () => {
-            alert("Đăng nhập thành công!");
+            Swal.fire({
+               title: "Đăng nhập thành công!",
+               icon: "success", //error, success,warning,question
+               confirmButtonText: "Tiếp tục",
+            });
             this.props.history.replace("/");
          })
       );

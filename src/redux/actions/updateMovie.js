@@ -1,10 +1,10 @@
 import { creactAction } from ".";
 import connector from "../../configs/connector";
-import { UPDATE_USER } from "../types/type";
+import { UPDATE_MOVIE } from "../types/type";
 import Swal from "sweetalert2";
 
 // async action
-export const updateUser = (data, callBack) => {
+export const updateMovie = (data, callBack) => {
    return (dispatch) => {
       connector({
          url:
@@ -13,10 +13,9 @@ export const updateUser = (data, callBack) => {
          data,
       })
          .then((res) => {
-            console.log("data", data);
+            console.log("data", res.data);
 
-            dispatch(creactAction(UPDATE_USER, data));
-
+            dispatch(creactAction(UPDATE_MOVIE, res.data));
             callBack();
          })
          .catch((err) => {

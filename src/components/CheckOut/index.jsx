@@ -41,24 +41,37 @@ class index extends Component {
    };
    // đặt vé
    handleBookingTicket = () => {
-      this.props.dispatch(
-         bookingTicket(this.props.ticket, () => {
-            Swal.fire({
-               title: "Đặt vé thành công! Bạn có muốn về trang chủ?",
-               icon: "success",
-               showCancelButton: true,
-               confirmButtonColor: "#3085d6",
-               cancelButtonColor: "#d33",
-               confirmButtonText: "Về trang chủ",
-            }).then((result) => {
-               if (result.isConfirmed) {
-                  window.location.href = "/";
-               } else {
-                  window.location.reload();
-               }
-            });
-         })
-      );
+      Swal.fire({
+         title: "Xác nhận đặt vé?",
+         showDenyButton: false,
+         showCancelButton: true,
+         confirmButtonText: `Đồng ý`,
+         confirmButtonColor: "#28a745",
+         cancelButtonText: "Hủy",
+      }).then((result) => {
+         /* Read more about isConfirmed, isDenied below */
+         if (result.isConfirmed) {
+            // nhấn đồng ý sẽ call api đặt vé
+            this.props.dispatch(
+               bookingTicket(this.props.ticket, () => {
+                  Swal.fire({
+                     title: "Đặt vé thành công! Bạn có muốn về trang chủ?",
+                     icon: "success",
+                     showCancelButton: true,
+                     confirmButtonColor: "#3085d6",
+                     cancelButtonColor: "#d33",
+                     confirmButtonText: "Về trang chủ",
+                  }).then((result) => {
+                     if (result.isConfirmed) {
+                        window.location.href = "/";
+                     } else {
+                        window.location.reload();
+                     }
+                  });
+               })
+            );
+         }
+      });
    };
    render() {
       let totalCount = 0;

@@ -1,7 +1,10 @@
 import {
+   ADD_MOVIE,
+   DELETE_MOVIE,
    SET_MOVIE,
    SET_MOVIE_DETAIL,
    SET_MOVIE_DETAIL_CAL,
+   UPDATE_MOVIE,
 } from "../types/type";
 
 let initialState = {
@@ -42,6 +45,7 @@ let initialState = {
    ],
    detailItem: {},
    detailCal: [],
+   selectedMovie: null,
 };
 const reducer = (state = initialState, { type, payLoad }) => {
    switch (type) {
@@ -64,8 +68,42 @@ const reducer = (state = initialState, { type, payLoad }) => {
             });
          }
          state.detailCal = calFilter;
-         console.log("detailCal", state.detailCal);
+         // console.log("detailCal", state.detailCal);
          return { ...state };
+      case "SELECTED_MOVIE":
+         state.selectedMovie = payLoad;
+         return { ...state };
+      case ADD_MOVIE:
+         const indexAddMovie = state.movieList.findIndex((item) => {
+            return item.maPhim !== payLoad.maPhim;
+         });
+         let cloneMovie = [...state.movieList];
+         if (indexAddMovie !== -1) {
+            cloneMovie = [...cloneMovie, payLoad];
+            state.movieList = cloneMovie;
+         }
+         return { ...state };
+      case DELETE_MOVIE:
+         const indexDeleteMovie = state.movieList.findIndex((item) => {
+            return item.maPhim === payLoad;
+         });
+         let cloneMovieList = [...state.movieList];
+         if (indexDeleteMovie !== -1) {
+            cloneMovieList.splice(indexDeleteMovie, 1);
+            [...state.movieList] = cloneMovieList;
+         }
+         return { ...state };
+      case UPDATE_MOVIE:
+         const indexUpdate = state.userListItem.findIndex(
+            (item) => item.taiKhoan === payLoad.taiKhoan
+         );
+         let cloneMovieListUpdate = [...state.movieList];
+         if (indexUpdate !== -1) {
+            cloneMovieListUpdate[indexUpdate] = payLoad;
+            state.movieList = cloneMovieListUpdate;
+         }
+         return { ...state };
+
       default:
          return state;
    }
