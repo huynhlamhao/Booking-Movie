@@ -71,7 +71,7 @@ class index extends Component {
          }
       }
       // Kiểm tra pass hợp lệ
-      if (type === "password") {
+      if (name === "matKhau") {
          const regexPassWord = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/;
          if (!regexPassWord.test(value)) {
             // Hợp lệ
@@ -84,7 +84,7 @@ class index extends Component {
       }
       // Kiểm tra phone hợp lệ
 
-      if (type === "tel") {
+      if (name === "soDt") {
          const regexPhoneNumber = /((09|03|07|08|05)+([0-9]{8})\b)/g;
          if (!regexPhoneNumber.test(value)) {
             // Hợp lệ
