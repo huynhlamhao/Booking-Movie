@@ -50,7 +50,7 @@ export default class index extends Component {
                         />
                      </NavLink>
                      <div
-                        className="nav flex-column nav-pills bg-navy"
+                        className="nav flex-column effect1 nav-pills bg-navy"
                         id="v-pills-tab"
                         role="tablist"
                         aria-orientation="vertical"
