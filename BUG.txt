@@ -1,3 +1,0 @@
-
--bug load lại data cũ rồi mới load data mới chi tiết phim
--routerLink lại tất cả
