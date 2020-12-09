@@ -102,14 +102,18 @@ class index extends Component {
                            {this.state.user.taiKhoan}
                            <i className="fas fa-user"></i>
                         </p>
-
-                        <Link
-                           onClick={this.handleLogout}
-                           className="btn btn-danger logout"
-                           to="/"
-                        >
-                           Đăng xuất
-                        </Link>
+                        <div className="myAccount">
+                           <Link className="btn btn-danger" to="/accoutDetail">
+                              Tài khoản
+                           </Link>
+                           <Link
+                              onClick={this.handleLogout}
+                              className="btn btn-danger"
+                              to="/"
+                           >
+                              Đăng xuất
+                           </Link>
+                        </div>
                      </div>
                   ) : (
                      <NavLink to="/signin" className="m-4 text-danger">

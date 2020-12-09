@@ -62,3 +62,11 @@
    margin: 0 !important;
    padding: 0 !important;
 }
+.timer span {
+   font-size: 2rem;
+   font-weight: bold;
+}
+.timer p {
+   padding: 0;
+   margin: 0;
+}

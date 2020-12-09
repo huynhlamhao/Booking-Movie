@@ -12,7 +12,77 @@ class index extends Component {
       super(props);
       this.state = {
          isLoading: false,
+         time: {},
+         seconds: 300,
       };
+
+      this.timer = 0;
+      this.startTimer = this.startTimer.bind(this);
+      this.countDown = this.countDown.bind(this);
+   }
+   secondsToTime(secs) {
+      let hours = Math.floor(secs / (60 * 60));
+
+      let divisor_for_minutes = secs % (60 * 60);
+      let minutes = Math.floor(divisor_for_minutes / 60);
+
+      let divisor_for_seconds = divisor_for_minutes % 60;
+      let seconds = Math.ceil(divisor_for_seconds);
+
+      let obj = {
+         h: hours,
+         m: minutes,
+         s: seconds,
+      };
+      return obj;
+   }
+   startTimer() {
+      if (this.timer === 0 && this.state.seconds > 0) {
+         this.timer = setInterval(this.countDown, 1000);
+      }
+   }
+
+   countDown() {
+      // Remove one second, set state so a re-render happens.
+      let seconds = this.state.seconds - 1;
+      this.setState({
+         time: this.secondsToTime(seconds),
+         seconds: seconds,
+      });
+      // Check if we're at zero.
+      if (seconds === 0) {
+         clearInterval(this.timer);
+
+         let timerInterval;
+         Swal.fire({
+            title: "Hết thời gian giữ vé!",
+            html: "Trang sẽ load lại sau <b></b>.",
+            timer: 2000,
+            icon: "error",
+            timerProgressBar: true,
+            showConfirmButton: false,
+            willOpen: () => {
+               Swal.showLoading();
+               timerInterval = setInterval(() => {
+                  const content = Swal.getContent();
+                  if (content) {
+                     const b = content.querySelector("b");
+                     if (b) {
+                        b.textContent = Swal.getTimerLeft();
+                     }
+                  }
+               }, 100);
+            },
+            willClose: () => {
+               clearInterval(timerInterval);
+            },
+         }).then((result) => {
+            /* Read more about handling dismissals below */
+            if (result.dismiss === Swal.DismissReason.timer) {
+               window.location.reload();
+            }
+         });
+      }
    }
    // điều khiển loading
    handleLazy() {
@@ -33,7 +103,7 @@ class index extends Component {
             <ShowChair
                vipArr={vipArr}
                nomalArr={nomalArr}
-               index={index}
+               stt={index}
                key={index}
             ></ShowChair>
          </div>
@@ -87,9 +157,20 @@ class index extends Component {
          <div className="row checkout  m-0">
             <div className="col-md-9 col-sm-12">
                <div className="text-center py-4">
-                  <h5>{thongTinPhim.tenCumRap}</h5>
-                  <span> {thongTinPhim.tenRap} </span>&ensp;|&ensp;
-                  <span>{thongTinPhim.gioChieu}</span>
+                  <div className="d-flex justify-content-around">
+                     <div className="w-50">
+                        <h5>{thongTinPhim.tenCumRap}</h5>
+                        <span> {thongTinPhim.tenRap} </span>&ensp;|&ensp;
+                        <span>{thongTinPhim.gioChieu}</span>
+                     </div>
+                     <div className="timer w-50">
+                        <p>Thời gian giữ ghế:</p>
+                        {this.startTimer()}
+                        <span className=" text text-danger">
+                           {this.state.time.m}: {this.state.time.s}
+                        </span>
+                     </div>
+                  </div>
                   <img
                      src="https://tix.vn/app/assets/img/icons/screen.png"
                      alt=""
@@ -201,6 +282,11 @@ class index extends Component {
    }
    componentDidMount() {
       this.handleLazy();
+      let timeLeftVar = this.secondsToTime(this.state.seconds);
+      this.setState({ time: timeLeftVar });
+   }
+   componentWillUnmount() {
+      this.countDown();
    }
 }
 const mapStateToProps = (state) => {

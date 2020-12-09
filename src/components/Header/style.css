@@ -1,22 +1,28 @@
-.logout {
+.myAccount {
    position: absolute;
-   bottom: -35px;
+   top: 100%;
    right: 0;
    display: block;
-   width: 120px;
+   width: 100px;
    text-align: center;
-   background-color: red;
+   background-color: #dc3545;
    border-radius: 4px;
    color: #fff;
+   text-decoration: none;
+
    opacity: 0;
 }
 .account {
    position: relative;
 }
-.account p:hover .logout {
+.myAccount a {
+   text-decoration: none !important;
+   color: white;
+}
+.account:hover .myAccount {
    opacity: 1;
 }
-.account:hover .logout {
+.account p:hover .myAccount {
    opacity: 1;
 }
 nav {
