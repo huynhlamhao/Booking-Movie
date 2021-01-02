@@ -47,7 +47,10 @@ class index extends Component {
                >
                   <span className="navbar-toggler-icon" />
                </button>
-               <div className="collapse navbar-collapse" id="collapsibleNavId">
+               <div
+                  className="collapse navbar-collapse bg-light text-center"
+                  id="collapsibleNavId"
+               >
                   <ul
                      className={`navbar-nav mr-auto ml-auto mt-2 mt-0  navBar  `}
                   >
