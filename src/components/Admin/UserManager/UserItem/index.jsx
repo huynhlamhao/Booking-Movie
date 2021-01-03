@@ -61,12 +61,12 @@ class index extends PureComponent {
             <td>
                <button
                   onClick={this.handleEditUser}
-                  className="btn btn-info mr-2"
+                  className="btn btn-info mr-2 showBtn"
                >
                   Sửa
                </button>
                <button
-                  className="btn btn-danger"
+                  className="btn btn-danger showBtn"
                   onClick={this.handleDeleteUser}
                >
                   Xóa

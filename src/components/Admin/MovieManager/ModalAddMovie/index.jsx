@@ -343,6 +343,7 @@ class index extends PureComponent {
                      <div className="form-group">
                         <label>Mô tả</label>
                         <textarea
+                           width="100%"
                            value={this.state.movie.moTa}
                            name="moTa"
                            form="formModalMovie"

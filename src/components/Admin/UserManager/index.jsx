@@ -5,6 +5,7 @@ import { fetchUserList } from "../../../redux/actions/userList";
 import UserList from "./UserList";
 import Search from "./Search";
 import ModalAddUser from "./ModalAddUser";
+import "./style.css";
 class index extends Component {
    constructor(props) {
       super(props);
