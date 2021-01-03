@@ -31,7 +31,7 @@ class index extends Component {
             <nav className="navbar navbar-expand-sm navbar-light">
                <NavLink to="/" className="navbar-brand" href="./">
                   <img
-                     src="https://i.imgur.com/lC22izJ.png"
+                     src="https://tix.vn/app/assets/img/icons/web-logo.png"
                      width="50px"
                      alt=""
                   />
@@ -48,7 +48,7 @@ class index extends Component {
                   <span className="navbar-toggler-icon" />
                </button>
                <div
-                  className="collapse navbar-collapse bg-light text-center"
+                  className="collapse navbar-collapse text-center"
                   id="collapsibleNavId"
                >
                   <ul
